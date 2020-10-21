@@ -8,10 +8,10 @@ NAME="`date +%y%m%d_%M%S_`\$wx\$h"
 SUF="png"
 PRE=""
 #### Options. Consult 'man scrot' for other options ####
-#Automatically take a full-screen shot with high quality
-#OPTION="-q 100"
+# Automatically take a full-screen shot with high quality
+OPTION="-q 100"
 # Interactively select a window (click anywhere) or draw a rectangle with the mouse for a high-quality shot.
-OPTION="-s -q 100" 
+#OPTION="-s -q 100" 
 
 
 display_help() {
