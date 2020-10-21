@@ -4,6 +4,8 @@
 
 * **mxfb-appearance** -- Provides graphic access to the most common items under rootMenu > Appearance.
 
+![Appearance](/pix/appearance.png)
+
 * **mxfb-menu-generator** -- Creates a menu with typical Debian categories
 
 * **mxfb-quickshot** -- Captures, saves and displays a screenshot within one second
