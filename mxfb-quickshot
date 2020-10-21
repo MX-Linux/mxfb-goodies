@@ -3,21 +3,14 @@
 ##this app was developed by tenner and can be downloaded in its original at http://tenr.de/snippets/scripts/shot.sh
 ##it has been modified here for use with MX-Fluxbox and released October 2020 under GPLv3
 
-TEXTDOMAINDIR=/usr/share/locale 
-export TEXTDOMAIN="mxfb-quickshot"
-
-MSG1=$"Options. Consult 'man scrot' for other options"
-MSG2=$"Automatically take a full-screen shot with high quality"
-MSG3=$"Interactively select a window (click anywhere) or draw a rectangle with the mouse for a high-quality shot."
-
 DESTDIR="${HOME}/Pictures"
 NAME="`date +%y%m%d_%M%S_`\$wx\$h"
 SUF="png"
 PRE=""
-#### $MSG1 ####
-# $MSG2
+#### Options. Consult 'man scrot' for other options ####
+# Automatically take a full-screen shot with high quality
 OPTION="-q 100"
-# $MSG3
+# Interactively select a window (click anywhere) or draw a rectangle with the mouse for a high-quality shot.
 #OPTION="-s -q 100" 
 
 

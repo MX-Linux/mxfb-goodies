@@ -42,6 +42,7 @@ if [ ! "$?" = "0" ]; then
     exit 0
 fi
 
+mkdir -p ~/.restore/fluxbox
 cp ~/.fluxbox/keys ~/.restore/fluxbox/keys_"$(date +%Y%m%d-%H%M%S)"
 
 
@@ -88,10 +89,10 @@ Mod1 Mod4 Right :MacroCmd {ResizeTo 50% 50% } {MoveTo 00 00 BottomRight}
 #   |  7   8   9  |    
 #   |  4   5   6  |    
 #   |  1   2   3  |    
-#   |  0          |
+#   |      0          |
 #   +-------------+
 #---------------------------------------------------------------
-# ALt and numpad keys : NumLock on
+# ALt and numpad keys : NumLock off
 #---------------------------------------------------------------
 Mod1 KP_1 :MacroCmd {ResizeTo  50%  50%} {MoveTo 00 00 BottomLeft}
 Mod1 KP_2 :MacroCmd {ResizeTo 100%  50%} {MoveTo 00 00 Bottom}
@@ -107,7 +108,7 @@ Mod1 KP_5 :MacroCmd {ResizeTo 70% 70% } {MoveTo 00 00 Center}
 Mod1 KP_0 :ToggleCmd {Maximize} {Restore}
 
 #---------------------------------------------------------------
-# ALt and numpad keys : NumLock off
+# ALt and numpad keys : NumLock on
 #---------------------------------------------------------------
 Mod1 KP_End    :MacroCmd {ResizeTo 50% 50% } {MoveTo 00 00 BottomLeft}
 Mod1 KP_Down   :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Bottom}
