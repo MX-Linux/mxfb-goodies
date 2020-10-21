@@ -8,6 +8,8 @@
 
 * **mxfb-menu-generator** -- Creates a menu with typical Debian categories
 
+![Appearance](/pix/DebianMenu.png)
+
 * **mxfb-quickshot** -- Captures, saves and displays a screenshot within one second
 
 * **mxfb-recent-files** -- Presents a clickable reversed list of the files used in the last 30 days.
