@@ -1,0 +1,141 @@
+#!/bin/bash
+#
+# Timer script using YAD dialog
+#
+# Author: D.M-Wilhelm (Leiche)
+# Email: meisssw01 at gmail.com
+# Licence: GPLv3
+#
+# Updated and tweaked by @misko_2083 and @damo, of the Bunsenlabs community
+# November 2019
+# modified by MX Linux Devs for use with MX-Fluxbox
+# October 2020 
+########################################################################
+Encoding=UTF-8
+#
+# i18n - Internationalization
+export TEXTDOMAIN="mxfb-timer"
+export TEXTDOMAINDIR="/usr/share/locale"
+#
+# define some variables
+#
+TITLE="MXFB Timer"
+ICON="/usr/share/icons/Moka/48x48/apps/time-admin.png"
+SOUNDFILE="/usr/share/sounds/alert.wav"
+
+### main dialog ###
+function menu {
+COUNTDOWN=$(yad --form --align=right \
+            --text "\n\t\t\tTime now is <span><big><b>$(date +"%R")</b></big></span>" \
+            --field "\t\t\tEnter minutes until alarm...":NUM  1!1..12000!1 \
+            --title="$TITLE" --window-icon=$ICON \
+            --image=$ICON \
+            --button="Change alarm sound:2" \
+            --button="Test:3" \
+            --button="gtk-ok:0" \
+            --button="gtk-cancel:1" \
+           )
+ret=$?
+COUNTDOWN="${COUNTDOWN%"|"*}"
+
+[[ $ret -eq 1 ]] && exit 0
+#
+### Change sound dialog ###
+#
+if [[ $ret -eq 2 ]]; then
+    CHANGE=$(yad --title="$TITLE" --window-icon=$ICON \
+        --file --width=600 --height=500 \
+        --filename="/usr/share/sounds/" \ 
+        --text="\n\t<b>Choose an audio file for the alert</b>\n") 2>/dev/null
+
+        if [ -z "$CHANGE" ];then 
+            exec mxfb-timer 2>/dev/null
+            exit 0
+        else
+            mkdir -p "$HOME/.config/mxfb-timer"
+            rm -rf "$HOME/.config/mxfb-timer/alert"
+            sleep 1
+            ln -s "$CHANGE" "$HOME/.config/mxfb-timer/alert"
+            yad --title "$TITLE" \
+                --button="gtk-ok:0" \
+                --width 300 \
+                --window-icon=$ICON \
+                --text="Your own sound is set"
+        fi
+    menu        
+fi
+#
+### Test sound dialog ###
+#
+if [[ $ret -eq 3 ]]; then
+    if [ -f $HOME/.config/mxfb-timer/alert ]; then
+        SOUND="$HOME/.config/mxfb-timer/alert"
+    else
+        SOUND="/usr/share/sounds/alert.wav"
+    fi
+    aplay $SOUND | yad --title "$TITLE" \
+                     --button="gtk-cancel:0" \
+                     --width 300 \
+                     --window-icon=$ICON \
+                     --text="...Exit sound test"
+    killall aplay
+    menu                 
+fi
+}
+menu
+
+[[ "$COUNTDOWN" == 1 ]] && MINS="minute" || MINS="minutes"
+
+if [ -z "$COUNTDOWN" ];then
+    exit
+else
+    echo You entered "$COUNTDOWN $MINS"
+    TIMER=$(echo $((COUNTDOWN*60)))
+    TASK1=$(date -s "+$TIMER seconds" 2>/dev/null | cut -d " " -f4)
+    temp=$(mktemp -u --tmpdir alarm.XXXXXXXX)
+    
+    mkfifo $temp
+    
+    exec 3<> $temp
+    
+    timeout --preserve-status $TIMER yad --notification  --listen <&3 & _pid=$!
+    echo tooltip: "\nTimer was set to <span><big><b>$COUNTDOWN</b></big></span> $MINS \
+        \n\nAlarm will be at <span><big><b>$TASK1</b></big></span> \
+        \n\nLMB or MMB to quit, RMB for menu" >&3
+    echo "action:quit" >&3
+    echo "menu:About!yad --about!gtk-info|Quit!quit!gtk-exit" >&3
+    echo "icon:${ICON}" >&3
+    
+    wait $_pid
+    [[ $? -eq 0 || $? -eq 252 ]] && rm $temp && exit
+    
+    rm $temp
+    exec 3>&-
+    
+    #check which sound
+    #
+    if [ -f $HOME/.config/mxfb-timer/alert ]; then
+        SOUND="$HOME/.config/mxfb-timer/alert"
+    else
+        SOUND="$SOUNDFILE"
+    fi
+    #
+    #alert output   Comment/Uncomment choice below...
+    #
+    ### Using YAD ###
+    (aplay "$SOUND") | yad --title "$TITLE" --undecorated \
+                     --no-buttons --sticky --escape-ok \
+                     --width 300 --image=$ICON \
+                     --window-icon="$ICON" \
+                     --timeout=10 \
+                     --text="\n\t<span><big><b>Time is up!</b></big></span>"
+                     exit;
+
+    ### Using notify-send ###
+    #aplay "$SOUND" &
+    #notify-send -t 10000 -i "$ICON" "Time is up! "
+    exit
+    ###
+fi
+
+exit
