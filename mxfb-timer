@@ -23,9 +23,8 @@ export TEXTDOMAINDIR="/usr/share/locale"
 # define some variables
 #
 TITLE="MXFB Timer"
-ICON="/usr/share/icons/Moka/48x48/apps/time-admin.png"
+ICON="/usr/share/icons/Moka/64x64/apps/time-admin.png"
 #ICON="/usr/share/icons/Papirus/64x64/apps/alarm-clock.svg"
-#ICON="/usr/share/icons/Paper/48x48/apps/alarm-clock.png"
 ICON2="/usr/share/icons/mxflux.png"
 SOUNDFILE="/usr/share/sounds/bleep.wav"
 #SOUNDFILE="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
@@ -64,7 +63,7 @@ yad_xid="$(echo $((${yad_xid})))"
 
 while true
  do
-   wmctrl -i -r "${yad_xid}" -N "$TITLE : $(date '+%T')" 2>/dev/null || break
+   wmctrl -i -r "${yad_xid}" -N "$TITLE : $(date '+%X')" 2>/dev/null || break
    sleep 1
 done
 }
@@ -74,7 +73,7 @@ function menu {
     change_title &
     
     MAX_MINUTES=12000
-    COUNTDOWN=$(yad --class="${win_class}" --title="$TITLE :  $(date '+%T')" \
+    COUNTDOWN=$(yad --class="${win_class}" --title="$TITLE :  $(date '+%X')" \
                     --window-icon="$ICON2" \
                     --image="$ICON" \
                     --borders=15 \
@@ -169,7 +168,7 @@ else
         \n\nAlarm will be at  <big><b>$TASK1</b></big> \
         \n\nLeft-click to quit, right-click for menu" >&3
     echo "action:quit" >&3
-    echo "menu:About!yad --about!gtk-info|Quit!quit!gtk-exit" >&3
+    echo "menu:Setting: $COUNTDOWN $MINS|Quit!gtk-exit" >&3
     echo "icon:${ICON}" >&3
     
     wait $_pid
