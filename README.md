@@ -28,4 +28,4 @@
 
 * **mxfb-timer** -- Handy timer that indicates time is up with sound and notification"
 
-![Timer](/pix/timer.ong)
+![Timer](/pix/timer.png)
