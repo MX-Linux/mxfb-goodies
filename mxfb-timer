@@ -1,0 +1,207 @@
+#!/bin/bash
+#
+# Timer script using YAD dialog
+#
+# Author: D.M-Wilhelm (Leiche)
+# Email: meisssw01 at gmail.com
+# Licence: GPL
+# Original date: 2011
+#
+# Updated and tweaked by @misko_2083 and @damo, of the Bunsenlabs community
+# November 2019
+#
+# Modified by MX Linux Devs for use with MX-Fluxbox
+# October 2020 
+# The sound file used here is located in the components folder
+########################################################################
+Encoding=UTF-8
+#
+# i18n - Internationalization
+export TEXTDOMAIN=mxfb-timer
+export TEXTDOMAINDIR="/usr/share/locale"
+#
+# define some variables
+#
+TITLE="MXFB Timer"
+ICON="/usr/share/icons/Moka/48x48/apps/time-admin.png"
+#ICON="/usr/share/icons/Papirus/64x64/apps/alarm-clock.svg"
+#ICON="/usr/share/icons/Paper/48x48/apps/alarm-clock.png"
+ICON2="/usr/share/icons/mxflux.png"
+SOUNDFILE="/usr/share/sounds/bleep.wav"
+#SOUNDFILE="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+
+
+# Choose whether to use YAD dialog or system notification for Alarm alert
+ALERT="YAD_ALERT"
+#ALERT="SYSTEM_ALERT"
+
+win_class="timer_class"
+
+### Check default icon and sound file ###
+[[ ! -f "$ICON" ]] && echo "$ICON not found"
+[[ ! -f "$SOUNDFILE" ]] && echo "Default soundfile, $SOUNDFILE, not found"
+
+### Test for mpv player
+if ! hash mpv; then
+    echo "$0: mpv binary is missing. Please issue 'sudo apt-get install mpv'." >&2
+    exit 1
+fi
+
+#--------------------
+# change title to current time
+#--------------------
+function change_title {
+declare yad_xid
+
+# need some time to register window class with X
+while [[ ${yad_xid} == "" ]]; do
+   # get Xwindow id
+   yad_xid="$(wmctrl -lx | grep -e "yad.${win_class}" |  grep -oE "[0-9a-z]{10}")"
+done
+
+# convert to decimal number
+yad_xid="$(echo $((${yad_xid})))"
+
+while true
+ do
+   wmctrl -i -r "${yad_xid}" -N "$TITLE : $(date '+%T')" 2>/dev/null || break
+   sleep 1
+done
+}
+
+### main dialog ###
+function menu {
+    change_title &
+    
+    MAX_MINUTES=12000
+    COUNTDOWN=$(yad --class="${win_class}" --title="$TITLE :  $(date '+%T')" \
+                    --window-icon="$ICON2" \
+                    --image="$ICON" \
+                    --borders=15 \
+                    --button="Change sound:2" \
+                    --button="Test sound:3" \
+                    --button="gtk-ok:0" \
+                    --button="gtk-cancel:1" \
+                    --height=180 \
+                    --form  --align=right --center \
+                    --field "\tEnter minutes until alarm...\t\n")
+
+    ret=$?
+    COUNTDOWN="${COUNTDOWN%"|"*}"
+    
+    [[ $ret -eq 1 ]] && exit 0
+    #
+    ### Change sound dialog ###
+    #
+    if [[ $ret -eq 2 ]]; then
+        CHANGE=$(yad --title="$TITLE" --window-icon=$ICON2 \
+            --file --width=600 --height=500 --center \
+            --button="gtk-ok:0" --button="gtk-cancel:1" \
+            --filename="/usr/share/sounds/" \
+            --text="\n\t<b>Choose an audio file for the alert</b>\n") 
+    
+            if [ -z "$CHANGE" ];then 
+                menu
+            else
+                # check soundfile exists
+                if [ -f "$CHANGE" ];then
+                    mkdir -p "$HOME/.config/mxfb-timer"
+                    rm -rf "$HOME/.config/mxfb-timer/alert"
+                    sleep 1
+                    ln -s "$CHANGE" "$HOME/.config/mxfb-timer/alert"
+                    yad --title "$TITLE" \
+                        --button="gtk-ok:0" \
+                        --width 300 --borders=15 --center \
+                        --window-icon="$ICON2" \
+                        --text="\nAlarm sound now in use is:\n\n<i>$CHANGE</i>"
+                else
+                    yad --title "$TITLE" \
+                         --button="gtk-ok:0" \
+                         --width 350 --borders=15 --center \
+                         --window-icon="$ICON2" --image-on-top \
+                         --image="gtk-dialog-warning" \
+                         --text="\t<big>You need to choose a\n\tsound file!</big>"
+    
+                    exec mxfb-timer
+                    exit
+                fi
+            fi
+        menu        
+    fi
+    #
+    ### Test sound dialog ###
+    #
+    if [[ $ret -eq 3 ]]; then
+        if [ -f $HOME/.config/mxfb-timer/alert ]; then
+            SOUND="$HOME/.config/mxfb-timer/alert"
+        else
+            SOUND="$SOUNDFILE"
+        fi
+        mpv --no-video "$SOUND" | yad --title "$TITLE" \
+                         --button="gtk-ok:0" \
+                         --width 300 --center --borders=15 \
+                         --window-icon="$ICON2" \
+                         --text="\n\t...Exit sound test"
+#        killall mpv
+          pkill -xf "mpv --no-video $SOUND"
+
+        menu                 
+    fi
+}
+menu
+
+[[ "$COUNTDOWN" == 1 ]] && MINS="minute" || MINS="minutes"
+
+if [ -z "$COUNTDOWN" ];then
+    exit
+else
+    echo You entered "$COUNTDOWN $MINS"
+    TIMER=$(echo $((COUNTDOWN*60)))
+    TASK1=$(date --date="+$TIMER seconds" 2>/dev/null | cut -d " " -f5)
+    temp=$(mktemp -u --tmpdir alarm.XXXXXXXX)
+    
+    mkfifo $temp
+    
+    exec 3<> $temp
+    
+    timeout --preserve-status $TIMER yad --notification  --listen <&3 & _pid=$!
+    echo tooltip: "\nAlarm clock was set to <big><b>$COUNTDOWN</b></big> $MINS \
+        \n\nAlarm will be at  <big><b>$TASK1</b></big> \
+        \n\nLeft-click to quit, right-click for menu" >&3
+    echo "action:quit" >&3
+    echo "menu:About!yad --about!gtk-info|Quit!quit!gtk-exit" >&3
+    echo "icon:${ICON}" >&3
+    
+    wait $_pid
+    [[ $? -eq 0 || $? -eq 252 ]] && rm $temp && exit
+    
+    rm $temp
+    exec 3>&-
+    
+    #check which sound
+    #
+    if [ -f "$HOME/.config/mxfb-timer/alert" ]; then
+        SOUND="$HOME/.config/mxfb-timer/alert"
+    else
+        SOUND="$SOUNDFILE"  # use default soundfile
+    fi
+
+    if [ "$ALERT" == "YAD_ALERT" ];then
+        ### Using YAD ##########
+        (mpv --no-video "$SOUND") | yad --title "$TITLE" --undecorated --center \
+                         --no-buttons --sticky --escape-ok --on-top \
+                         --width 300 --image="$ICON" \
+                         --window-icon="$ICON2" \
+                         --borders=15 \
+                         --timeout=10 \
+                         --text="\n\t<big><b>Time is up!</b></big>"
+                         exit
+    else
+        ### Using notify-send ###
+        mpv --no-video "$SOUND" &
+        notify-send -i "$ICON" "Time is up! "
+        exit
+    fi
+fi
+
+exit
