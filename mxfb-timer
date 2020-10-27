@@ -63,7 +63,7 @@ yad_xid="$(echo $((${yad_xid})))"
 
 while true
  do
-   wmctrl -i -r "${yad_xid}" -N "$TITLE : $(date '+%T')" 2>/dev/null || break
+   wmctrl -i -r "${yad_xid}" -N "$TITLE : $(date '+%X')" 2>/dev/null || break
    sleep 1
 done
 }
@@ -73,7 +73,7 @@ function menu {
     change_title &
     
     MAX_MINUTES=12000
-    COUNTDOWN=$(yad --class="${win_class}" --title="$TITLE :  $(date '+%T')" \
+    COUNTDOWN=$(yad --class="${win_class}" --title="$TITLE :  $(date '+%X')" \
                     --window-icon="$ICON2" \
                     --image="$ICON" \
                     --borders=15 \
