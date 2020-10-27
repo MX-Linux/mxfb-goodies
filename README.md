@@ -25,3 +25,7 @@
 * **mxfb-tiles** -- Inserts code into the keys file that enables 1/4, 1/3 or 1/2 screen tiling.
 
 ![Tiling](/pix/tiling.png)
+
+* **mxfb-timer** -- Handy timer that indicates time is up with sound and notification"
+
+![Timer](/pix/timer.ong)
