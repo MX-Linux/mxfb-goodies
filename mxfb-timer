@@ -89,9 +89,9 @@ function menu {
     COUNTDOWN="${COUNTDOWN%"|"*}"
     
     [[ $ret -eq 1 ]] && exit 0
-    #
-    ### Change sound dialog ###
-    #
+#
+### Change sound dialog ###
+#
     if [[ $ret -eq 2 ]]; then
         CHANGE=$(yad --title="$TITLE" --window-icon=$ICON2 \
             --file --width=600 --height=500 --center \
@@ -127,9 +127,9 @@ function menu {
             fi
         menu        
     fi
-    #
-    ### Test sound dialog ###
-    #
+#
+### Test sound dialog ###
+#
     if [[ $ret -eq 3 ]]; then
         if [ -f $HOME/.config/mxfb-timer/alert ]; then
             SOUND="$HOME/.config/mxfb-timer/alert"
