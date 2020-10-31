@@ -1,0 +1,98 @@
+#! /bin/bash
+#functions to be used:
+
+######################session.screen0.toolbar.visible
+
+show_toolbar()
+{
+#Gui to use or not the Fluxbox toolbar's toggle (different from auto-hide):
+toogle=$(yad --title "Toogle Fluxbox toolbar on/off" --center --width=310 --form --field="Use Fluxbox Toolbar? :CB" true\!false )
+# remove pipe simbol at the end of variable
+toggle=${toogle%?}
+## Check if something was selected##
+if [ -z "$toggle" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.visible:.*/session.screen0.toolbar.visible: $toggle/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+######################
+
+position()
+{
+########################
+#Gui to change the Fluxbox toolbar's position:
+slit_position=$(yad --title "Fluxbox toolbar's Position" --width=310 --center --form --field="Choose:CB" BottomCenter\!BottomLeft\!BottomRight\!LeftCenter\!RightCenter\!TopCenter\!TopLeft\!TopRight )
+# remove pipe simbol at the end of variable
+slit_position=${slit_position%?}
+## Check if something was selected##
+if [ -z "$slit_position" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.placement:.*/session.screen0.toolbar.placement: $slit_position/" ~/.fluxbox/init
+echo "not empty:" & sed -i "s/^session.screen0.toolbar.visible:.*/session.screen0.toolbar.visible: true/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+########################
+layer()
+{
+#Gui to change the Fluxbox toolbar's layer:
+slit_layer=$(yad --title "Fluxbox toolbar's Layer" --center --width=310 --form --field="Choose:CB" Desktop\!Dock\!Top\!Normal\!Bottom )
+# remove pipe simbol at the end of variable
+slit_layer=${slit_layer%?}
+## Check if something was selected##
+if [ -z "$slit_layer" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.layer:.*/session.screen0.toolbar.layer: $slit_layer/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+########################
+
+autohide()
+{
+#Gui to change the Fluxbox toolbar's auto-hide:
+slit_autohide=$(yad --title "Fluxbox toolbar's auto-hide" --center --width=310 --form --field="Choose:CB" false\!true )
+# remove pipe simbol at the end of variable
+slit_autohide=${slit_autohide%?}
+## Check if something was selected##
+if [ -z "$slit_autohide" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.autoHide:.*/session.screen0.toolbar.autoHide: $slit_autohide/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+######################
+
+width()
+{
+#Gui to change the Fluxbox toolbar's Width:
+slit_size=$(yad --title "Fluxbox toolbar's Width" --center --width=310 --form --field=" Width (%) :NUM" 75\!10..100\!1)
+# remove pipe simbol at the end of variable
+slit_size=${slit_size%?}
+## Check if something was selected##
+if [ -z "$slit_size" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.widthPercent:.*/session.screen0.toolbar.widthPercent: $slit_size/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+######################
+export -f show_toolbar autohide layer position width
+
+function button1 () 
+{ 
+   echo "button 1 is pressed" 
+} 
+export -f button1
+
+yad --title "Basic Toolbar Configuration" --width=300  --center --text-align=center --text=" \n  <b>Click label to change a setting</b> \n" \
+--form --field " <b>Position</b>:btn" --field "<b>Auto-hide</b>:btn" --field "<b>Layer</b>:btn" --field "<b>Width</b>:btn" --field "<b>On/Off</b>:btn"\
+    "bash -c position" "bash -c autohide" "bash -c layer" "bash -c width" "bash -c show_toolbar"

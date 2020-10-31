@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# this script returns a 3-day forecast for the user's locale in a terminal screen
+# it was created October 2020 by MX user kabala and revised by MX Devs for use in MX-Fluxbox
+# TODO: add user options 
+
+xfce4-terminal --hide-menubar --title "Simple Weather" --geometry 130x40 -x bash -c "curl 'http://wttr.in/'; read -N1;"

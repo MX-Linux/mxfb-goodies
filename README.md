@@ -22,6 +22,10 @@
 
 ![Separate backgrounds](/pix/separate.png)
 
+* **mxfb-simple-weather** -- Presents a 3-day forecast in a terminal screen
+
+![Weather](/pix/weather.png)
+
 * **mxfb-tiles** -- Inserts code into the keys file that enables 1/4, 1/3 or 1/2 screen tiling.
 
 ![Tiling](/pix/tiling.png)
