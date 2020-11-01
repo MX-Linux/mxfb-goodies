@@ -14,6 +14,26 @@
 # October 2020 
 # The sound file used here is located in the components folder
 ########################################################################
+
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN="mxfb-timer"
+
+TITLE=$"MXFB Timer"
+MSG1=$"$ICON not found"
+MSG2=$"Default soundfile, $SOUNDFILE, not found"
+MSG3=$"Change sound"
+MSG4=$"Test sound"
+MSG5=$"Enter minutes until alarm..."
+MSG6=$"Choose an audio file for the alert"
+MSG7=$"Alarm sound now in use is"
+MSG8=$"You need to choose a\n\tsound file!"
+MSG9=$"Exit sound test"
+MSG10=$"Setting"
+MSG11=$"Alarm will be at"
+MSG12=$"Left-click to quit, right-click for menu"
+MSG13=$"Time is up!"
+
+
 Encoding=UTF-8
 #
 # i18n - Internationalization
@@ -27,8 +47,6 @@ ICON="/usr/share/icons/Moka/64x64/apps/time-admin.png"
 #ICON="/usr/share/icons/Papirus/64x64/apps/alarm-clock.svg"
 ICON2="/usr/share/icons/mxflux.png"
 SOUNDFILE="/usr/share/sounds/bleep.wav"
-#SOUNDFILE="/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
-
 
 # Choose whether to use YAD dialog or system notification for Alarm alert
 ALERT="YAD_ALERT"
@@ -37,8 +55,8 @@ ALERT="YAD_ALERT"
 win_class="timer_class"
 
 ### Check default icon and sound file ###
-[[ ! -f "$ICON" ]] && echo "$ICON not found"
-[[ ! -f "$SOUNDFILE" ]] && echo "Default soundfile, $SOUNDFILE, not found"
+[[ ! -f "$ICON" ]] && echo "$MSG1"
+[[ ! -f "$SOUNDFILE" ]] && echo "MSG2"
 
 ### Test for mpv player
 if ! hash mpv; then
@@ -77,13 +95,13 @@ function menu {
                     --window-icon="$ICON2" \
                     --image="$ICON" \
                     --borders=15 \
-                    --button="Change sound:2" \
-                    --button="Test sound:3" \
+                    --button="$MSG3:2" \
+                    --button="$MSG4:3" \
                     --button="gtk-ok:0" \
                     --button="gtk-cancel:1" \
                     --height=180 \
                     --form  --align=right --center \
-                    --field "\tEnter minutes until alarm...\t\n")
+                    --field "\t$MSG5\t\n")
 
     ret=$?
     COUNTDOWN="${COUNTDOWN%"|"*}"
@@ -97,7 +115,7 @@ function menu {
             --file --width=600 --height=500 --center \
             --button="gtk-ok:0" --button="gtk-cancel:1" \
             --filename="/usr/share/sounds/" \
-            --text="\n\t<b>Choose an audio file for the alert</b>\n") 
+            --text="\n\t<b>$MSG6</b>\n") 
     
             if [ -z "$CHANGE" ];then 
                 menu
@@ -112,14 +130,14 @@ function menu {
                         --button="gtk-ok:0" \
                         --width 300 --borders=15 --center \
                         --window-icon="$ICON2" \
-                        --text="\nAlarm sound now in use is:\n\n<i>$CHANGE</i>"
+                        --text="\n$MSG7:\n\n<i>$CHANGE</i>"
                 else
                     yad --title "$TITLE" \
                          --button="gtk-ok:0" \
                          --width 350 --borders=15 --center \
                          --window-icon="$ICON2" --image-on-top \
                          --image="gtk-dialog-warning" \
-                         --text="\t<big>You need to choose a\n\tsound file!</big>"
+                         --text="\t<big>$MSG8</big>"
     
                     exec mxfb-timer
                     exit
@@ -140,7 +158,7 @@ function menu {
                          --button="gtk-ok:0" \
                          --width 300 --center --borders=15 \
                          --window-icon="$ICON2" \
-                         --text="\n\t...Exit sound test"
+                         --text="\n\t...$MSG9"
 #        killall mpv
           pkill -xf "mpv --no-video $SOUND"
 
@@ -164,11 +182,11 @@ else
     exec 3<> $temp
     
     timeout --preserve-status $TIMER yad --notification  --listen <&3 & _pid=$!
-    echo tooltip: "\nAlarm clock was set to <big><b>$COUNTDOWN</b></big> $MINS \
-        \n\nAlarm will be at  <big><b>$TASK1</b></big> \
-        \n\nLeft-click to quit, right-click for menu" >&3
+    echo tooltip: "\n$MSG10 <big><b>$COUNTDOWN</b></big> $MINS \
+        \n\n$MSG11  <big><b>$TASK1</b></big> \
+        \n\n$MSG12" >&3
     echo "action:quit" >&3
-    echo "menu:Setting: $COUNTDOWN $MINS|Quit!gtk-exit" >&3
+    echo "menu:$MSG10: $COUNTDOWN $MINS|Quit!gtk-exit" >&3
     echo "icon:${ICON}" >&3
     
     wait $_pid
@@ -193,7 +211,7 @@ else
                          --window-icon="$ICON2" \
                          --borders=15 \
                          --timeout=10 \
-                         --text="\n\t<big><b>Time is up!</b></big>"
+                         --text="\n\t<big><b>$MSG13</b></big>"
                          exit
     else
         ### Using notify-send ###

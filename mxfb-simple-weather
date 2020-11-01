@@ -1,9 +1,15 @@
 #! /bin/bash
 
-# this script returns a 3-day forecast for the user's locale in a terminal screen using ASCII format
+# this script returns a 3-day forecast for the user's locale in a terminal screen using ASCII or data-rich format
 # it was created October 2020 by MX user kabala using work by Igor Chubin: https://github.com/chubin/wttr.in 
 # revised by MX Devs for use in MX-Fluxbox
 # description and many command-line options on Chubin's GitHub site 
 # TODO: include some of the command-line options?
 
+##original ASCII format
 xfce4-terminal --hide-menubar --title "Simple Weather" --geometry 130x40 -x bash -c "curl 'http://wttr.in/'; read -N1;"
+
+##data-rich output format
+#xfce4-terminal --hide-menubar --title "Simple Weather" --geometry 75x45 -x bash -c "curl 'http://v2.wttr.in/'; read -N1;"
+
+
