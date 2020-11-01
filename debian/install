@@ -5,7 +5,6 @@ components/conky-manager-mxfb.png usr/share/icons
 components/choosefile usr/bin
 components/bleep.wav usr/share/sounds
 components/nitrogen/ etc/xdg
-components/FullMenuExample usr/share/mxflux
 components/flux-toolbar usr/bin
 mxfb-appearance usr/bin
 mxfb-separate-backgrounds usr/bin
@@ -14,3 +13,4 @@ mxfb-tiles usr/bin
 mxfb-menu-generator usr/bin
 mxfb-quickshot usr/bin
 mxfb-timer usr/bin
+mxfb-simple-weather usr/bin
