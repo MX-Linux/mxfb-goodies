@@ -24,7 +24,6 @@ fi
 
 position()
 {
-########################
 #Gui to change the Toolbar position:
 slit_position=$(yad --title "Position" --width=310 --center --form --field="Choose:CB" BottomCenter\!BottomLeft\!BottomRight\!LeftCenter\!RightCenter\!TopCenter\!TopLeft\!TopRight )
 # remove pipe symbol at the end of variable
@@ -87,6 +86,25 @@ else echo "not empty:" & sed -i "s/^session.screen0.toolbar.widthPercent:.*/sess
 fluxbox-remote restart
 fi
 }
+
+######################
+
+height()
+{
+#Gui to change the Toolbar Height:
+height=$(yad --title "Height" --center --width=310 --form --field=" Height :NUM" 30\!10..100\!2)
+# remove pipe symbol at the end of variable
+height=${height%?}
+## Check if something was selected##
+if [ -z "$height" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.height:.*/session.screen0.toolbar.height: $height/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+
 ######################
 
 transparency()
@@ -105,7 +123,7 @@ fi
 }
 ######################
 
-export -f show_toolbar autohide layer position width transparency
+export -f show_toolbar autohide layer position width height transparency
 
 function button1 () 
 { 
@@ -113,6 +131,6 @@ function button1 ()
 } 
 export -f button1
 
-yad --title "Basic Toolbar Configuration" --width=300  --center --text-align=center --text=" \n  <b>Click to change a toolbar setting</b> \n" \
---form --field " <b>Position</b>:btn" --field "<b>Auto-hide</b>:btn" --field "<b>Layer</b>:btn" --field "<b>Width</b>:btn" --field "<b>Show/Hide</b>:btn" --field "<b>Transparency</b>:btn" \
-    "bash -c position" "bash -c autohide" "bash -c layer" "bash -c width" "bash -c show_toolbar" "bash -c transparency" --window-icon=/usr/share/icons/mxflux.png
+yad --title "Basic Toolbar Configuration" --width=300  --center --text-align=center --text=" \n  <b><i>Click to change a toolbar setting</i></b> \n" \
+--form --field " <b>Position</b>:btn" --field "<b>Auto-hide</b>:btn" --field "<b>Layer</b>:btn" --field "<b>Width</b>:btn" --field " <b>Height</b>:btn" --field "<b>Show/Hide</b>:btn" --field "<b>Transparency</b>:btn" \
+    "bash -c position" "bash -c autohide" "bash -c layer" "bash -c width" "bash -c height" "bash -c show_toolbar" "bash -c transparency" --window-icon=/usr/share/icons/mxflux.png

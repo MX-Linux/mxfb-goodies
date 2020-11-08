@@ -22,8 +22,8 @@ BUTTON7=$"Wallpaper"
 
 
 
-yad --geometry=200x64 --center --title=$TITLE  \
---button="!/usr/share/icons/Moka/64x64/apps/awn-settings.png!$BUTTON0":mxfb-toolbar \
+yad --geometry=200x64 --center --title=$TITLE --columns=2 \
+--button="!/usr/share/icons/Moka/64x64/places/desktop.png!$BUTTON0":flux-toolbar \
 --button="!/usr/share/icons/conky-manager-mxfb.png!$BUTTON1":conky-manager2 \
 --button="!/usr/share/icons/mx-dockmaker64.png!$BUTTON2":mx-dockmaker \
 --button="""!/usr/share/icons/Moka/64x64/apps/direct-connect.png!$BUTTON3":mx-idesktool \
