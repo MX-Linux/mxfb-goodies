@@ -15,6 +15,9 @@
 # The sound file used here is located in the components folder
 ########################################################################
 
+Encoding=UTF-8
+#
+# i18n - Internationalization
 TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mxfb-timer"
 
@@ -33,12 +36,6 @@ MSG11=$"Alarm will be at"
 MSG12=$"Left-click to quit, right-click for menu"
 MSG13=$"Time is up!"
 
-
-Encoding=UTF-8
-#
-# i18n - Internationalization
-export TEXTDOMAIN=mxfb-timer
-export TEXTDOMAINDIR="/usr/share/locale"
 #
 # define some variables
 #
