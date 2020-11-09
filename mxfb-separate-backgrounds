@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#Script to configure separate backgrounds for each Fluxbox Workspace
-#Written by user PPC and modified by MX Devs, September 2020
-#Released under GPLv3
+# Script to configure separate backgrounds for each Fluxbox Workspace
+# Written by user PPC and modified by MX Devs, September 2020
+# Released under GPLv3
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="mxfb-separate-backgrounds"

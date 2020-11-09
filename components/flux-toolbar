@@ -1,10 +1,22 @@
 #! /bin/bash
 
 # created by user PPC September 2020
-# modified by MX Linux Devs for use with MX-Fluxbox
+# modified by MX Linux Devs November 2020 for use with MX-Fluxbox
 # GPLv3
 
 ######################
+
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN="flux-toolbar"
+
+TITLE=$"Basic Toolbar Configuration"
+LABEL1=$"Position"
+LABEL2=$"Auto-hide"
+LABEL3=$"Layer (screen priority)"
+LABEL4=$"Width"
+LABEL5=$"Height"
+LABEL6=$"Show/Hide"
+LABEL7=$"Transparency"
 
 show_toolbar()
 {
@@ -42,7 +54,7 @@ fi
 layer()
 {
 #Gui to change the Toolbar layer:
-slit_layer=$(yad --title "Layer" --center --width=310 --form --field="Choose:CB" Desktop\!Dock\!Top\!Normal\!Bottom )
+slit_layer=$(yad --title "Layer" --center --width=310 --form --field="Choose:CB" Above_dock\!Dock\!Top\!Normal\!Bottom\!Destop )
 # remove pipe symbol at the end of variable
 slit_layer=${slit_layer%?}
 ## Check if something was selected##
@@ -131,6 +143,6 @@ function button1 ()
 } 
 export -f button1
 
-yad --title "Basic Toolbar Configuration" --width=300  --center --text-align=center --text=" \n  <b><i>Click to change a toolbar setting</i></b> \n" \
---form --field " <b>Position</b>:btn" --field "<b>Auto-hide</b>:btn" --field "<b>Layer</b>:btn" --field "<b>Width</b>:btn" --field " <b>Height</b>:btn" --field "<b>Show/Hide</b>:btn" --field "<b>Transparency</b>:btn" \
+yad --title "$TITLE" --width=300  --center --text-align=center --text=" \n  <b><i>Click to change a toolbar setting</i></b> \n" \
+--form --field " <b>$LABEL1</b>:btn" --field "<b>$LABEL2</b>:btn" --field "<b>$LABEL3</b>:btn" --field "<b>$LABEL4</b>:btn" --field " <b>$LABEL5</b>:btn" --field "<b>$LABEL6</b>:btn" --field "<b>$LABEL7</b>:btn" \
     "bash -c position" "bash -c autohide" "bash -c layer" "bash -c width" "bash -c height" "bash -c show_toolbar" "bash -c transparency" --window-icon=/usr/share/icons/mxflux.png
