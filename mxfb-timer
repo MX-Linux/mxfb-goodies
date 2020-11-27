@@ -35,6 +35,10 @@ DIR10=$"Alarm clock was set to"
 DIR11=$"Alarm will be at  "
 DIR12=$"Left-click to quit, right-click for menu"
 DIR13=$"Time is up"
+MSG10=$"Setting"
+MSG11=$"Alarm will be at"
+MSG12=$"Left-click to quit, right-click for menu"
+MSG13=$"Time is up!"
 
 TIME1=$"minutes"
 TIME2=$"hours"
@@ -292,10 +296,10 @@ else
     
     exec 3<> $temp
     
-    timeout --preserve-status $TIMER yad --notification  --listen <&3 & _pid=$!
-    echo tooltip: "\n$DIR10 <big><b>$COUNTDOWN</b></big> $MINS \
-        \n\n$DIR11  <big><b>$TASK1</b></big> \
-        \n\n$DIR12" >&3
+    timeout --preserve-status $TIMER yad --notification  --listen <&3 & _pid=$! \
+    echo tooltip: "\n$MSG10 <big><b>$COUNTDOWN</b></big> $MINS \
+        \n\n$MSG11  <big><b>$TASK1</b></big> \
+        \n\n$MSG12" >&3
     echo "action:quit" >&3
     echo 'menu:About!yad --about!gtk-info|Quit!quit!gtk-exit' >&3
     echo "icon:${ICON}" >&3
