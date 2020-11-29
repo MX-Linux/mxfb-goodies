@@ -326,8 +326,14 @@ echo 'menu:'"$M_LINE_1"'!true|'"$M_LINE_2"'!true|'"$QUIT"'!quit!gtk-quit' >&3
 echo "icon:${ICON}" >&3
 
 wait $_pid
-    #check which sound
-    #
+
+    [[ $? -eq 0 || $? -eq 252 ]] && rm $temp && exit
+    
+    rm $temp
+    exec 3>&-
+
+#check which sound
+#
     if [ -f "$HOME/.config/mxfb-timer/alert" ]; then
         SOUND="$HOME/.config/mxfb-timer/alert"
     else
