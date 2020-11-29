@@ -36,9 +36,11 @@ DIR11=$"Alarm will be at  "
 DIR12=$"Left-click to quit, right-click for menu"
 DIR13=$"Time is up"
 MSG10=$"Setting"
-MSG11=$"Alarm will be at"
-MSG12=$"Left-click to quit, right-click for menu"
-MSG13=$"Time is up!"
+#MSG11=$"Alarm will be at"
+#MSG12=$"Left-click to quit, right-click for menu"
+#MSG13=$"Time is up!"
+
+QUIT=$"Quit"
 
 TIME1=$"minutes"
 TIME2=$"hours"
@@ -53,8 +55,8 @@ FIELD2=$"Check time and date"
 # define some variables
 #
 TITLE="MXFB Timer"
-ICON="/usr/share/icons/Moka/48x48/apps/time-admin.png"
-#ICON="/usr/share/icons/Papirus/64x64/apps/alarm-clock.svg"
+#ICON="/usr/share/icons/Moka/64x64/apps/time-admin.png"
+ICON="/usr/share/icons/Papirus/64x64/apps/alarm-clock.svg"
 #ICON="/usr/share/icons/Paper/48x48/apps/alarm-clock.png"
 ICON2="/usr/share/icons/mxflux.png"
 SOUNDFILE="/usr/share/sounds/bleep.wav"
@@ -186,7 +188,7 @@ export  -f get_alert
 
 ### main dialog ###
 function menu {
-    change_title &
+    #change_title &
     
     COUNTDOWN=$(/bin/yad --class="${win_class}" \
 					--title="$TITLE     ($(date '+%D -- %R'))" \
@@ -294,22 +296,36 @@ else
     
     mkfifo $temp
     
-    exec 3<> $temp
-    
-    timeout --preserve-status $TIMER yad --notification  --listen <&3 & _pid=$! \
-    echo tooltip: "\n$MSG10 <big><b>$COUNTDOWN</b></big> $MINS \
-        \n\n$MSG11  <big><b>$TASK1</b></big> \
-        \n\n$MSG12" >&3
-    echo "action:quit" >&3
-    echo 'menu:About!yad --about!gtk-info|Quit!quit!gtk-exit' >&3
-    echo "icon:${ICON}" >&3
-    
-    wait $_pid
-    [[ $? -eq 0 || $? -eq 252 ]] && rm $temp && exit
-    
-    rm $temp
-    exec 3>&-
-    
+exec 3<> $temp
+
+# TOOLTIP="\nAlarm clock was set to <big><b>$COUNTDOWN</b></big> $MINS \
+#        \n\nAlarm will be at  <big><b>$TASK1</b></big> \
+#        \n\nLeft-click to quit, right-click for menu"
+
+
+COUNTDOWN_BIG="<big><b>$COUNTDOWN</b></big>"
+TASK_BIG="<big><b>$TASK1</b></big>"
+
+T_LINE_1="$DIR10 $COUNTDOWN_BIG $MINS"
+T_LINE_2="$DIR11 $TASK_BIG"
+T_LINE_3="$DIR12"
+
+M_LINE_1="$DIR10 $COUNTDOWN $MINS"
+M_LINE_2="$DIR11 $TASK1"
+
+TOOLTIP="\n"
+TOOLTIP+="$T_LINE_1\n\n"
+TOOLTIP+="$T_LINE_2\n\n"
+TOOLTIP+="$T_LINE_3"
+
+timeout --preserve-status ${TIMER}m \
+   yad --notification  --listen <&3 & _pid=$!
+echo tooltip: "$TOOLTIP" >&3
+echo "action:quit" >&3
+echo 'menu:'"$M_LINE_1"'!true|'"$M_LINE_2"'!true|'"$QUIT"'!quit!gtk-quit' >&3
+echo "icon:${ICON}" >&3
+
+wait $_pid
     #check which sound
     #
     if [ -f "$HOME/.config/mxfb-timer/alert" ]; then
@@ -325,7 +341,7 @@ else
                          --width 300 --image="$ICON" \
                          --window-icon="$ICON2" \
                          --borders=15 \
-                         --timeout=10 \
+                         --timeout=3 \
                          --text="\n\t<big><b>$DIR13!</b></big>"
                          exit
     else
