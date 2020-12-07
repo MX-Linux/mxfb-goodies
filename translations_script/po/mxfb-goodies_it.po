@@ -92,8 +92,7 @@ msgstr ""
 
 #: mxfb-tiles:12
 msgid "Features: 1/2 screen, 1/4 screen, 1/3 screen and restore \\n"
-msgstr "Aspetti: 1/2 schermo, 1/4 di schermo, 1/3 di schermo e ripristino " 
-"\n"
+msgstr "Aspetti: 1/2 schermo, 1/4 di schermo, 1/3 di schermo e ripristino\n"
 
 #: mxfb-tiles:13
 msgid "Multiple options for number keys and keyboard"
