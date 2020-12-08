@@ -35,7 +35,8 @@ yad --center --window-icon=$ICON --fix-window --text="
 
 $NOTE1
 $NOTE2
-$NOTE3</b>" \
+$NOTE3</b>
+" \
 --title=$"$TITLE" --window-icon=$ICON --text-align=center \
 --button="<b>$BUTTON1</b>":1 \
 --button="<b>$BUTTON2</b>":3 \
