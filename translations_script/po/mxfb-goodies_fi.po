@@ -157,15 +157,17 @@ msgstr "MXFB Kello"
 
 #: mxfb-timer:25
 msgid "Enter local time"
-msgstr ""
+msgstr "Anna paikallinen aika"
 
 #: mxfb-timer:26
 msgid "or number and unit"
-msgstr ""
+msgstr "tai numero ja yksikkö"
 
 #: mxfb-timer:27
 msgid "Click \"Check...\" button to confirm time and date are correct"
 msgstr ""
+"Napsauta \"Tarkista ...\" -painiketta varmistaaksesi, että aika ja "
+"päivämäärä ovat oikein"
 
 #: components/flux-toolbar:12
 msgid "Basic Toolbar Configuration"
