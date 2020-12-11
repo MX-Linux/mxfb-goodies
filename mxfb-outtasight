@@ -1,0 +1,150 @@
+#! /bin/bash
+
+# graphic representation of the rootMenu options under Out of sight
+ # adapt this
+ 
+ TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN="mxfb-outtasight"
+
+
+TITLE=$"Out of sight"
+LABEL1=$"Kill the dock"
+LABEL2=$"Toggle conky"
+LABEL3=$"Toggle iDesk"
+LABEL4=$"Toggle icons"
+LABEL5=$"Toggle autohide dock"
+LABEL6=$"Toggle autohide toolbar"
+
+######################## this is working
+kill_dock()
+{
+#Gui to stop the current dock:
+stop=$(yad --title "Kill the dock" --center --width=310 --form --text="<b>Stop the current dock?</b>" \
+--button=gtk-no:1 --button=gtk-yes:0)
+echo $stop
+# remove pipe symbol at the end of variable
+stop=${stop%?}
+## Check answer ##
+if [ -z "1" ]; then
+exit
+#if yes was selected, stop wmalauncher
+else echo "OK
+" & killall wmalauncher
+fi
+}
+
+########################
+toggle_conky()
+{
+#Gui to change the Toolbar layer:
+slit_layer=$(yad --title "Layer" --center --width=310 --form --field="Choose:CB" Above_dock\!Dock\!Top\!Normal\!Bottom\!Destop )
+# remove pipe symbol at the end of variable
+slit_layer=${slit_layer%?}
+## Check if something was selected##
+if [ -z "$slit_layer" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.layer:.*/session.screen0.toolbar.layer: $slit_layer/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+########################
+
+toggle_idesk()
+{
+#Gui to change the Toolbar auto-hide:
+slit_autohide=$(yad --title "Auto-hide" --center --width=310 --form --field="Choose:CB" false\!true )
+# remove pipe symbol at the end of variable
+slit_autohide=${slit_autohide%?}
+## Check if something was selected##
+if [ -z "$slit_autohide" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.autoHide:.*/session.screen0.toolbar.autoHide: $slit_autohide/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+######################
+
+toggle_icons()
+{
+#Gui to change the Toolbar Width:
+slit_size=$(yad --title "Width" --center --width=310 --form --field=" Width (%) :NUM" 75\!10..100\!2)
+# remove pipe symbol at the end of variable
+slit_size=${slit_size%?}
+## Check if something was selected##
+if [ -z "$slit_size" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.widthPercent:.*/session.screen0.toolbar.widthPercent: $slit_size/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+######################
+
+toggle_autohide_dock()
+{
+#Gui to change the Toolbar Height:
+height=$(yad --title "Height" --center --width=310 --form --field=" Height :NUM" 30\!10..100\!2)
+# remove pipe symbol at the end of variable
+height=${height%?}
+## Check if something was selected##
+if [ -z "$height" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.height:.*/session.screen0.toolbar.height: $height/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+######################
+
+toggle_autohide_toolbar()
+{
+#Gui to change the Toolbar Height:
+height=$(yad --title "Height" --center --width=310 --form --field=" Height :NUM" 30\!10..100\!2)
+# remove pipe symbol at the end of variable
+height=${height%?}
+## Check if something was selected##
+if [ -z "$height" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.height:.*/session.screen0.toolbar.height: $height/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+######################
+
+disable_default_dock()  
+{
+#Gui to change the Toolbar Transparency:
+transparency=$(yad --title "Transparency" --center --width=310 --form --field=" Transparency (1-255) :NUM" 255\!1..255\!5)
+# remove pipe symbol at the end of variable
+transparency=${transparency%?}
+## Check if something was selected##
+if [ -z "$transparency" ]; then
+echo "Nothing was selected"
+#if something was selected, change the init file
+else echo "not empty:" & sed -i "s/^session.screen0.toolbar.alpha:.*/session.screen0.toolbar.alpha: $transparency/" ~/.fluxbox/init
+fluxbox-remote restart
+fi
+}
+
+
+######################
+
+export -f kill_dock toggle_conky toggle_idesk toggle_icons toggle_autohide_dock toggle_autohide_toolbar disable_default_dock 
+
+function button1 () 
+{ 
+   echo "button 1 is pressed" 
+} 
+export -f button1
+
+yad --title "$TITLE" --width=300  --center --text-align=center --text=" \n  <b><i>Click to hide/show an element</i></b> \n" \
+--form --field " <b>$LABEL1</b>:btn" --field "<b>$LABEL2</b>:btn" --field "<b>$LABEL3</b>:btn" --field "<b>$LABEL4</b>:btn" --field " <b>$LABEL5</b>:btn" --field "<b>$LABEL6</b>:btn" --field "<b>$LABEL7</b>:btn" \
+    "bash -c kill_dock" "bash -c toggle_conky" "bash -c toggle_idesk" "bash -c toggle_icons" "bash -c toggle_autohide_dock" "bash -c toggle_autohide_toolbar" "bash -c disable_default_dock" --window-icon=/usr/share/icons/mxflux.png
+
