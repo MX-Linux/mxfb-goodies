@@ -1,4 +1,4 @@
-mxfb-goodies (20.12.07) UNRELEASED; urgency=medium
+mxfb-goodies (20.12.11) mx; urgency=medium
 
   * added new mxfb-menu-generator
   * added key options for mxfb-files
@@ -8,8 +8,9 @@ mxfb-goodies (20.12.07) UNRELEASED; urgency=medium
   * added toolbar icon to mxfb-appearance
   * major upgrade of mxfb-timer
   * translations updated
+  * additional translations
 
- -- j b <jb@X1Cmx>  Mon, 07 Dec 2020 20:13:10 -0500
+ -- j b <jb@X1Cmx>  Fri, 11 Dec 2020 10:21:42 -0500
 
 mxfb-goodies (20.10.03) mx; urgency=medium
 
