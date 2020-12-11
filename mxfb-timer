@@ -40,9 +40,6 @@ MSG10=$"Setting"
 
 QUIT=$"Quit"
 
-TIME1=$"minutes"
-TIME2=$"hours"
-TIME3=$"days"
 BUTTON1=$"Change sound"
 BUTTON2=$"Test sound"
 FIELD1=$"Enter alarm time"
@@ -53,18 +50,19 @@ FIELD2=$"Check time and date"
 # define some variables
 #
 TITLE="MXFB Timer"
+#HELPFILE="/usr/share/doc/mxfb-timer/help"
 #ICON="/usr/share/icons/Moka/64x64/apps/time-admin.png"
 export ICON="/usr/share/icons/Papirus/64x64/apps/alarm-clock.svg"
 #ICON="/usr/share/icons/Paper/48x48/apps/alarm-clock.png"
 export ICON2="/usr/share/icons/mxflux.png"
 
 # set default sound files
-SOUNDFILES="(
+SOUNDFILES=(
     /usr/share/sounds/bleep.wav
     /usr/share/sounds/freedesktop/stereo/bell.oga
-)"
+)
 # set default sound
-for s in "${SOUNDFILES}"; do
+for s in "${SOUNDFILES[@]}"; do
     if [ -f "$s" ]; then
        SOUNDFILE=$s
        break
@@ -288,7 +286,7 @@ get_countdown() {
     change_title &
     TEXT="
           <b><i>$DIR1 (9:15pm, 13:50, 12am, etc.)  \n
-          $DIR2 (3 $TIME1, 2$TIME2 + 30$TIME1, etc.) \n
+          $DIR2 (3 minutes, 2hours + 30minutes, etc.) \n
           $DIR4</i></b>
     "
     COUNTDOWN=$(
@@ -317,6 +315,16 @@ get_countdown() {
     COUNTDOWN=$(get_alert minutes $COUNTDOWN)
     echo "$COUNTDOWN"
     return $ret
+    
+    #ret=&?
+
+#Help -- not working yet
+# Would need a button added: --button:"Help:2"
+ #if   [[  $ret -eq 2 ]]; then
+ #yad --text-info --title "HELP" --wrap <$HELPFILE \
+    --geometry 600x300 --window-icon="/usr/share/icons/mxflux.png" \
+     --button gtk-ok:1
+#fi
 }
 
 COUNTDOWN=$(get_countdown)
@@ -330,8 +338,8 @@ fi
 
 
 echo $DIR9 "$COUNTDOWN $MINS"
-TIMER=$(echo $((COUNTDOWN*60)))
-TASK1=$(date --date="+$TIMER seconds" 2>/dev/null | cut -d " " -f5)
+TIMER=$(echo $((COUNTDOWN)))
+TASK1=$(date --date="+$TIMER minutes" '+%X %x' 2>/dev/null )
 temp=$(mktemp -u --tmpdir alarm.XXXXXXXX)
 
 mkfifo $temp
