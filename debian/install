@@ -8,6 +8,7 @@ components/flux-toolbar usr/bin
 components/choosefile usr/bin
 components/bleep.wav usr/share/sounds
 components/nitrogen/ etc/xdg
+components/mxfb-tint2-manager usr/share/doc/
 mxfb-appearance usr/bin
 mxfb-separate-backgrounds usr/bin
 mxfb-recent-files usr/bin

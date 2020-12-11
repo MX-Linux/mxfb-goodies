@@ -1,3 +1,9 @@
+mxfb-goodies (20.12.12) UNRELEASED; urgency=medium
+
+  *added tint2-manager and help file 
+
+ -- j b <jb@X1Cmx>  Fri, 11 Dec 2020 17:59:30 -0500
+
 mxfb-goodies (20.12.11) mx; urgency=medium
 
   * added new mxfb-menu-generator
