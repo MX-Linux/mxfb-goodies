@@ -7,7 +7,7 @@ components/panel64.png usr/share/icons
 components/flux-toolbar usr/bin
 components/choosefile usr/bin
 components/bleep.wav usr/share/sounds
-components/quickshot /usr/share/quickshot
+components/quickshot.conf /usr/share/quickshot
 components/tint2-manager-help /usr/share/doc/mxfb-goodies/
 executors/weather/* ~/.config/tint2/executors
 mxfb-appearance usr/bin
