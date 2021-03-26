@@ -1,8 +1,16 @@
-mxfb-goodies (20.12.12) UNRELEASED; urgency=medium
+mxfb-goodies (20.12.12+nmu1) UNRELEASED; urgency=medium
 
+  [ j b ]
   *added tint2-manager and help file 
+  * added xkcd, flux-toolbar
+  * revised quickshot to include settings file in .config
+  * upgraded recent-files
+  * added a weather executor
 
- -- j b <jb@X1Cmx>  Fri, 11 Dec 2020 17:59:30 -0500
+  [ Jerry Bond ]
+  * 
+
+ -- Jerry Bond <jb@X1Cmx>  Thu, 25 Mar 2021 21:01:49 -0400
 
 mxfb-goodies (20.12.11) mx; urgency=medium
 
