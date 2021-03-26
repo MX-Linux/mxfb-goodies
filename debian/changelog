@@ -1,4 +1,4 @@
-mxfb-goodies (20.12.12+nmu1) UNRELEASED; urgency=medium
+mxfb-goodies (20.12.12+nmu2) UNRELEASED; urgency=medium
 
   [ j b ]
   *added tint2-manager and help file 
@@ -8,9 +8,9 @@ mxfb-goodies (20.12.12+nmu1) UNRELEASED; urgency=medium
   * added a weather executor
 
   [ Jerry Bond ]
-  * 
+  * added weather executor
 
- -- Jerry Bond <jb@X1Cmx>  Thu, 25 Mar 2021 21:01:49 -0400
+ -- Jerry Bond <jb@X1Cmx>  Fri, 26 Mar 2021 07:44:52 -0400
 
 mxfb-goodies (20.12.11) mx; urgency=medium
 

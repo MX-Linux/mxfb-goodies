@@ -6,6 +6,10 @@
 
 ![Xkcd](/pix/bl-xkcd.png)
 
+* **Executor: weather** -- nice weather plugin for tint2 systray
+
+![Weather executor](/pix/tint2_weather.png)
+
 * **mxfb-appearance** -- Provides graphic access to the most common items under rootMenu > Appearance.
 
 ![Appearance settings](/pix/appearance.png)
