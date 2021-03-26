@@ -1,0 +1,15 @@
+Tint2 config files must be in $TINT2PATH, set by default to $HOME/.config/tint2/
+-----------------------------------
+
+When the dialog opens, any running tint2s will be checkmarked.
+
+Click "Apply" and all running tint2s are stopped,
+   and all checkmarked tint2s are started.
+
+To stop a tint2 just uncheck it, and "Apply".
+
+Running tint2s are saved to a session file, and can be run with
+   the "tint2-session" script. To start them at login, add the
+   following line to autostart:
+
+           tint2session

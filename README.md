@@ -2,9 +2,17 @@
 
 ### Optional scripts for MX-Fluxbox
 
+* **bl-xkcd** -- puts random cartoon from Xkcd on the desktop
+
+![Xkcd](/pix/bl-xkcd.png)
+
 * **mxfb-appearance** -- Provides graphic access to the most common items under rootMenu > Appearance.
 
 ![Appearance settings](/pix/appearance.png)
+
+* **mxfb-flux-toolbar** -- Nice graphic presentation of common Fluxbox toolbar settings
+
+![Fluxbox toolbar](/pix/flux-toolbar.png)
 
 * **mxfb-menu-generator** -- Creates a menu with typical Debian categories
 
@@ -30,6 +38,10 @@
 
 ![Tiling](/pix/tiling.png)
 
-* **mxfb-timer** -- Handy timer that indicates time is up with sound and notification"
+* **mxfb-timer** -- Handy timer that indicates time is up with sound and notification
 
 ![Timer](/pix/timer.png)
+
+* **mxfb-tint2-manager** -- Very useful tool for dealing with the tint2 panel configs
+
+![Tint2](/pix/tint2.png)

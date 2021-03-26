@@ -1,0 +1,10 @@
+This weather executor was designed and made available to MX-Linux Fluxbox by user Ceeslans.
+
+#####DESCRIPTION#####
+It places an icon in the toolbar, displaying a pictogram of the current weather condition + current temperature.
+This tint2-executor will obtain geo-location details by default - or a fixed location can be set. It also has an option to set the system to 'metric' (celcius) or to 'imperial' (fahrenheit).
+When left-clicking the icon, detailed information about the current weather conditions is displayed in a pop-up window.
+
+#####REQUIREMENTS#####
+--It uses OpenWeatherMaps services. You will need to register to obtain a (free) api-key at: https://openweathermap.org/api, which is to be inserted in the script(s).
+--This script requires 'jq' to be installed, for JSON data parsing.

@@ -40,7 +40,7 @@
 TINT2PATH="$HOME/.config/tint2"
 TINT2DEFAULT="$TINT2PATH/tint2rc" # tint2 will create this if it doesn't exist
 SESSIONFILE="$TINT2PATH/tint2-sessionfile"
-HELPFILE="/usr/share/doc/mxfb-tint2-manager/help"
+HELPFILE="/usr/share/doc/mxfb-goodies/tint2-manager-help"
 USAGE='bl-tint2-manager is a tint2 selection and switcher script
 which uses yad to generate a graphical user interface.
 
@@ -73,16 +73,25 @@ Use:
 
             tint2session
 '
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN="mxfb-tint2-manager"
+
+TITLE="Tint2 Manager"
+TITLE2="HELP"
+TEXT="Check to run, uncheck to stop"
+BUTTON0="Apply"
+BUTTON1="Close"
+BUTTON2="Help"
+
 
 ### DIALOG VARIABLES
 DLGDEC="yad --borders=20 "
-TITLE="Tint2 Manager"
 WINICON="--window-icon=tint2"
 #OK="--button=OK:2"
-HELP="--button=Help:2"
-APPLY="--button=Apply:0"
+HELP="--button=$BUTTON2:2"
+APPLY="--button=$BUTTON0:0"
 #CANCEL="--button=gtk-cancel:1"
-CLOSE="--button=Close:1"
+CLOSE="--button=$BUTTON1:1"
 ########################################################################
 
 getRunning(){
@@ -147,7 +156,7 @@ loadDialog() {
 ## Populate dialog from array, get return value(s)
     RET=$($DLGDEC $WINICON --list --title="$TITLE" --undecorated --window-icon="/usr/share/icons/mxflux.png" \
         --text="
-        <b><i>Check to run, uncheck to stop</i></b>
+        <b><i>$TEXT</i></b>
         " \
         --checklist --width=360 --height=360 --borders=15 \
         --column="Select" --column="Name" "${LISTTINT[@]}" --separator=":" \
@@ -196,7 +205,7 @@ loadDialog() {
         done
     done
 #   $HELP button 
-    (( retval == 2 )) && yad --text-info --title "HELP" --wrap <$HELPFILE \
+    (( retval == 2 )) && yad --text-info --title "$TITLE2" --wrap <$HELPFILE \
     --geometry 600x300 --window-icon="/usr/share/icons/mxflux.png" \
      --button gtk-ok:1
 }

@@ -1,0 +1,120 @@
+#!/bin/bash
+#
+# requires 'jq' (a lightweight command-line JSON processor) to be installed !!!
+
+### ==============================
+### User settings ################ 
+### ++++++++++++++++++++++++++++++
+
+#API_KEY="enter-your-32-digit-api-key-here"  ### sign up at http://openweathermap.org/appid to obtain key
+API_KEY="................................"
+
+PLACE="$1"			# [Default] --> the script will obtain your geo-location !
+#PLACE="......."	# enter your City ID (check http://openweathermap.org/find)
+
+SYMBOL="˚C"			# setting the metric system (temperature in dgr Celcius)
+#SYMBOL="˚F"			# setting the imperial system (temperature in dgr Fahrenheit)
+
+
+
+### ============================================================
+### Don't change below script, unless you know what you're doing
+### ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+if [[ -z $PLACE ]] &>/dev/null;then
+	ipinfo=$(curl -s ipinfo.io)
+	latlong=$(echo "$ipinfo" | jq -r '.loc')
+	lat=${latlong%,*}
+	long=${latlong#*,}
+	LOCATION="lat=$lat&lon=$long"
+else
+	[[ ${PLACE##*[!0-9]*} ]] &>/dev/null && LOCATION="id=$PLACE" || LOCATION="q=$PLACE"
+fi
+
+if ping -qc1 1.1.1.1 >/dev/null; then
+	if [[ $SYMBOL = "˚F" ]]; then
+		UNITS="imperial"
+		WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?${LOCATION}&appid=${API_KEY}&&units=${UNITS}"
+	elif [[ $SYMBOL = "˚C" ]]; then
+		UNITS="metric"
+		WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?${LOCATION}&appid=${API_KEY}&&units=${UNITS}"
+	else
+		echo "${ICONPATH}404.png"
+		echo "Link Down"
+	fi
+fi
+
+WEATHER_INFO=$(wget -qO- "${WEATHER_URL}")
+WEATHER_ICON=$(echo "${WEATHER_INFO}" | grep -o -e '\"icon\":\"[0-9a-z]*\"' | awk -F ':' '{print $2}' | tr -d '"')	
+WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[A-Za-z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+WEATHER_DESCR=$(echo "${WEATHER_INFO}" | grep -o -e '\"description\":\"[a-z a-z]*' | awk -F ':' '{print $2}' | tr -d '"')
+WEATHER_TEMP=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+TEMP_FEEL=$(echo "${WEATHER_INFO}" | grep -o -e '\"feels_like\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')	
+TEMP_MIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp_min\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+TEMP_MAX=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp_max\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+LOC_CITY=$(echo "${WEATHER_INFO}" | grep -o -e '\"name\":\"[A-Za-z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+LOC_CNTY=$(echo "${WEATHER_INFO}" | grep -o -e '\"country\":\"[A-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+HUMIDITY=$(echo "${WEATHER_INFO}" | grep -o -e '\"humidity\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+PRESSURE=$(echo "${WEATHER_INFO}" | grep -o -e '\"pressure\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+WIND_DGR=$(echo "${WEATHER_INFO}" | grep -o -e '\"deg\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')	
+WIND_SPD=$(echo "${WEATHER_INFO}" | grep -o -e '\"speed\":\-\?[0-9.0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+WIND_KMH=$(echo "${WIND_SPD}*3.6" | bc)
+WIND_MPH=$(echo "${WIND_SPD}" | bc)
+DATE=$(date +"%A %d %b %Y  -  %R")
+
+if [[ $SYMBOL = "˚F" ]]; then
+	WIND_SPEED=$(echo "$WIND_MPH" Mph)
+elif [[ $SYMBOL = "˚C" ]]; then
+	WIND_SPEED=$(echo "$WIND_KMH" km/h)
+fi
+
+if [[ $WIND_DGR -le 11 ]]; then
+	WIND_DIR=$(echo "Direction:  N")
+elif [[ $WIND_DGR -le 33 ]]; then
+	WIND_DIR=$(echo "Direction:  NNE")
+elif [[ $WIND_DGR -le 56 ]]; then
+	WIND_DIR=$(echo "Direction:  NE")
+elif [[ $WIND_DGR -le 78 ]]; then
+	WIND_DIR=$(echo "Direction:  ENE")
+elif [[ $WIND_DGR -le 101 ]]; then
+	WIND_DIR=$(echo "Direction:  E")
+elif [[ $WIND_DGR -le 123 ]]; then
+	WIND_DIR=$(echo "Direction:  ESE")
+elif [[ $WIND_DGR -le 146 ]]; then
+	WIND_DIR=$(echo "Direction:  SE")
+elif [[ $WIND_DGR -le 168 ]]; then
+	WIND_DIR=$(echo "Direction:  SSE")
+elif [[ $WIND_DGR -le 191 ]]; then
+	WIND_DIR=$(echo "Direction:  S")
+elif [[ $WIND_DGR -le 213 ]]; then
+	WIND_DIR=$(echo "Direction:  SSW")
+elif [[ $WIND_DGR -le 236 ]]; then
+	WIND_DIR=$(echo "Direction:  SW")
+elif [[ $WIND_DGR -le 258 ]]; then
+	WIND_DIR=$(echo "Direction:  WSW")
+elif [[ $WIND_DGR -le 281 ]]; then
+	WIND_DIR=$(echo "Direction:  W")
+elif [[ $WIND_DGR -le 303 ]]; then
+	WIND_DIR=$(echo "Direction:  WNW")
+elif [[ $WIND_DGR -le 326 ]]; then
+	WIND_DIR=$(echo "Direction:  NW")
+elif [[ $WIND_DGR -le 348 ]]; then
+	WIND_DIR=$(echo "Direction:  NNW")
+elif [[ $WIND_DGR -le 360 ]]; then
+	WIND_DIR=$(echo "Direction:  N")
+else
+	WIND_DIR=$(echo "Direction:  Error")
+fi 
+
+### ==============
+### Output to file
+### ++++++++++++++
+
+echo "Weather for ${LOC_CITY}, ${LOC_CNTY} "
+echo "${DATE} h "
+echo "-------------"
+echo "Today's  low/high:   ${TEMP_MIN} - ${TEMP_MAX}${SYMBOL}"
+echo "Condition:  ${WEATHER_DESCR}    "
+echo "Temperature:  ${WEATHER_TEMP}${SYMBOL}   ( feels like ${TEMP_FEEL}${SYMBOL} ) "
+echo "Wind speed:  ${WIND_SPEED}     ${WIND_DIR}   "
+echo "Humidity:  ${HUMIDITY} %      Pressure:  ${PRESSURE} hPa       "
