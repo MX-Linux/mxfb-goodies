@@ -20,22 +20,19 @@ TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mxfb-menu-generator"
 
 MSG1="$Please wait, creating menu file ~/.fluxbox/full_menu"
-MSG2="$If you want to insert this new 'All apps' sub-menu into your MXFB menu:"
-MSG3="$click 'Menu > Settings > Configure > Menu'"
-MSG4="$and insert, anywhere you want, this code:"
+
+yad --geometry 400x300 --selectable-labels --fontname=Sans Bold 12 --text="If you want to insert this new 'All apps' sub-menu into your MXFB menu: click \ 
+'Menu > Settings > Configure > Menus > Main' \ 
+and insert, anywhere you want, this code:\n
+-----\n
+[submenu] (All apps) \n
+[exec] (Update Menu) {~/MXFB_menu_generator.sh} \n
+ [include] (~/.fluxbox/full_menu) \n
+ [end]"
+
+
 MSG5="$not adding this entry to menu because it has a nodisplay flag"
 MSG6="$Menu file created and ready to be used"
-
-echo "$MSG1"
-echo
-echo "$MSG2"
-echo "$MSG3"
-echo 
-echo  ' [submenu] (All apps)'
-echo  '  [exec] (Update Menu) {~/MXFB_menu_generator.sh} '
-echo  '  [include] (~/.fluxbox/full_menu)'
-echo  ' [end]'
-echo
 
 cd ~/.fluxbox/
 #Get system language (to allow localization):

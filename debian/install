@@ -4,7 +4,6 @@ components/mx-dockmaker64.png usr/share/icons
 components/mx-dockmaker64_nologo.png usr/share/icons
 components/conky-manager-mxfb.png usr/share/icons
 components/panel64.png usr/share/icons
-components/flux-toolbar usr/bin
 components/choosefile usr/bin
 components/bleep.wav usr/share/sounds
 components/quickshot.conf /usr/share/quickshot
@@ -18,4 +17,6 @@ mxfb-menu-generator usr/bin
 mxfb-quickshot usr/bin
 mxfb-timer usr/bin
 mxfb-simple-weather usr/bin
-
+mxfb-flux-toolbar usr/bin
+mxfb-tint2-manager usr/bin
+bl-xkcd usr/bin
