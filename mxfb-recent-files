@@ -66,7 +66,7 @@ To use this script, you could :
 	1. Add this script in ~/.fluxbox/scripts/ folder with the name recentfiles-fbmenu, and give it execution permission. 
 
 	2. Add in you fluxbox menu following lines :
-		[submenu] (Recent files) </usr/share/icons/Papirus/48x48/places/folder-recent.png>
+		[submenu] (Recent files) 
 			[include] (~/.fluxbox/submenus/recent_files_menu)
 			[separator]
 			[exec] (Update list) {~/.fluxbox/scripts/recentfiles-fbmenu}

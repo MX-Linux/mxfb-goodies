@@ -4,7 +4,7 @@
 ## it was released November 2020 by MX Linux Devs under a GPLv3 license 
 ## this app requires the Moka icons that are located in /components
 ## they should be placed in the appropriate section of /usr/share/icons/Moka/
-## it also requires nitrogen for background selection and setting and flux-toolbar (in /components)
+## it also requires nitrogen for flux-toolbar (in /components)
 ## the conky-manager-mxfb.png and the mx-dockmaker64.png were created by user ceeslans
 
 TEXTDOMAINDIR=/usr/share/locale
