@@ -1,4 +1,4 @@
-mxfb-goodies (20.12.12+nmu3) UNRELEASED; urgency=medium
+mxfb-goodies (21.03.28) mx; urgency=medium
 
   [ j b ]
   *added tint2-manager and help file 
@@ -9,9 +9,10 @@ mxfb-goodies (20.12.12+nmu3) UNRELEASED; urgency=medium
 
   [ Jerry Bond ]
   * added weather executor
-  * changed to yad box for message in menu-generator
+  * changed to yad box for code in menu-generator
+  * 
 
- -- Jerry Bond <jb@X1Cmx>  Sun, 28 Mar 2021 12:08:31 -0400
+ -- Jerry Bond <jb@X1Cmx>  Sun, 28 Mar 2021 12:13:56 -0400
 
 mxfb-goodies (20.12.11) mx; urgency=medium
 
