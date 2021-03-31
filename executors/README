@@ -11,12 +11,12 @@ When left-clicking the icon, detailed information about the current weather cond
 
 #####SETUP#####
 --Right-click ~/.config/tint2/ to open the tint2 config in an editor
---Add an "E" (for Executor) to the "panel_items" setting, for instance:
+1) Add an "E" (for Executor) to the "panel_items" setting, for instance:
 -----
 # Panel
 panel_items = LTSECP
 -----
---You will need a new section in the tint2 config file. Here is an example that you can modify as you see fit:
+2) You will need a new section in the tint2 config file. Here is an example that you can modify as you see fit:
 
 #-------------------------------------
 # Executor	(weather local)
