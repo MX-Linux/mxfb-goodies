@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to configure separate backgrounds for each Fluxbox Workspace
-# Written by user PPC and modified by MX Devs, September 2020
+# Written by user PPC and modified by MX Devs 
 # Released under GPLv3
 
 TEXTDOMAINDIR=/usr/share/locale 
@@ -123,4 +123,7 @@ done
 
 #Implement the changes: 
 fluxbox-remote restart
- echo fluxbox restarted, script finished
+pgrep -u $(id -u)  -x idesk >/dev/null &&  idesktoggle idesk refresh
+killall -SIGUSR1 conky 2>/dev/null
+
+echo fluxbox restarted, script finished
