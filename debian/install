@@ -6,7 +6,7 @@ components/conky-manager-mxfb.png usr/share/icons
 components/panel64.png usr/share/icons
 components/choosefile usr/bin
 components/bleep.wav usr/share/sounds
-components/quickshot.conf /usr/share/quickshot
+components/mxfb-quickshot.conf /usr/share/mxfb-quickshot/
 components/tint2-manager-help /usr/share/doc/mxfb-goodies/
 executors/weather/* ~/.config/tint2/executors
 mxfb-appearance usr/bin

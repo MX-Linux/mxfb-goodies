@@ -1,10 +1,19 @@
 #!/bin/bash 
 
-##this app was developed by tenner and can be downloaded in its original at http://tenr.de/snippets/scripts/shot.sh
-##it has been modified here for use with MX-Fluxbox and released October 2020 under GPLv3
+## this app was developed by tenner and can be downloaded in its original at http://tenr.de/snippets/scripts/shot.sh
+## it was modified for use with MX-Fluxbox and released October 2020 under GPLv3
+## reworked by MX Devs for use of a config file April 2021
 
-if [ ! -f "$HOME/.config/MX-Linux/quickshot" ]; then cp /usr/share/quickshot/quickshot $HOME/.config/quickshot; fi
-. $HOME/.config/MX-Linux/quickshot;
+DESTDIR="${HOME}/Pictures"
+NAME="`date +%y%m%d_%M%S_`\$wx\$h"
+SUF="png"
+PRE=""
+
+if [ ! -f "$HOME/.config/MX-Linux/mxfb-quickshot.conf" ]; then 
+cp /usr/share/mxfb-quickshot/mxfb-quickshot.conf $HOME/.config/MX-Linux/mxfb-quickshot.conf; 
+fi
+
+source ${HOME}/.config/MX-Linux/mxfb-quickshot.conf
 
 display_help() {
 	cat << EOF
