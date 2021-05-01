@@ -7,9 +7,19 @@
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="mxfb-separate-backgrounds"
 
+STRING="Background.Delay: 0"
+
+if ! grep -q "$STRING" $HOME/.ideskrc;
+then
+        sed -i 's/^\([[:blank:]]*Background\.Delay:\).*/\1 0/' "$HOME/.ideskrc"
+yad --timeout=3 --no-buttons --geometry 500x100 --text-align=center --text="
+<b>Rotate Backgrounds has been disabled to avoid conflict.</b>
+"
+fi
+
 #Confirmation Window:
 MESSAGE1=$"  This app allows you to configure separate backgrounds for each Workspace  </b>"
-HINT1=$" Selection windows will pop up for each Workspace."
+HINT1=$" Selection windows will pop up  each Workspace."
 HINT2=$" Type \"mxfb\" to jump to the MXFB backgrounds."
 HINT3=$" Select the background you want and click OK."
 NOTE1=$" NOTE 1: Background changes using the menu won't be permanent."
@@ -56,9 +66,9 @@ exit 0
 
 fi
 
-# set idesk to no rotation to avoid conflict
-sed -i -r 's/Background.Delay:[[:space:]]+1/Background.Delay: 0/' ~/.ideskrc
-
+# set idesk to no rotation to avoid conflict << not working
+#sed -i "s/'Background.Delay\:\s*'/'Background.Delay\:\s0'/" ~/.ideskrc
+#sed -i 's/^Background.Delay .*$/Background.Delay 0/' ~/.ideskrc
 
 #Check if the keys file has already been edited to allow costume wallpapers for each workspace:
 ##check if the keys file has a ChangeWorkspace entry

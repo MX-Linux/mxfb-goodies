@@ -1,8 +1,10 @@
-mxfb-goodies (21.03.29) UNRELEASED; urgency=medium
+mxfb-goodies (21.03.30) UNRELEASED; urgency=medium
 
   * added mxfb-bg-rotate
+  * moved files created in  menu-generator out of main directory
+  * added code to kill bg-rotate when running separate backgrounds
 
- -- Jerry Bond <jb@X1Cmx>  Wed, 31 Mar 2021 17:13:33 -0400
+ -- Jerry Bond <jb@X1Cmx>  Sat, 01 May 2021 09:18:30 -0400
 
 mxfb-goodies (21.03.28) mx; urgency=medium
 
