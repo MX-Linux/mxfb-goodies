@@ -7,17 +7,8 @@
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="mxfb-separate-backgrounds"
 
-STRING="Background.Delay: 0"
-
-if ! grep -q "$STRING" $HOME/.ideskrc;
-then
-        sed -i 's/^\([[:blank:]]*Background\.Delay:\).*/\1 0/' "$HOME/.ideskrc"
-yad --timeout=3 --no-buttons --geometry 500x100 --text-align=center --text="
-<b>Rotate Backgrounds has been disabled to avoid conflict.</b>
-"
-fi
-
-#Confirmation Window:
+#Confirmation Window
+NOTIFICATION=$" Rotate Backgrounds has been disabled to avoid conflict."
 MESSAGE1=$"  This app allows you to configure separate backgrounds for each Workspace  </b>"
 HINT1=$" Selection windows will pop up  each Workspace."
 HINT2=$" Type \"mxfb\" to jump to the MXFB backgrounds."
@@ -33,6 +24,16 @@ MESSAGE2=$"Separate backgrounds have been disabled."
 TITLE2=$"Wallpaper selector"
 TITLE3=$"Warning"
 WARNING=$"There is no wallpaper image selected for Workspace $n... Will substitute 'mx_blue.jpg' to avoid any errors."
+
+STRING="Background.Delay: 0"
+
+if ! grep -q "$STRING" $HOME/.ideskrc;
+then
+        sed -i 's/^\([[:blank:]]*Background\.Delay:\).*/\1 0/' "$HOME/.ideskrc"
+yad --timeout=3 --no-buttons --geometry 500x100 --text-align=center --text="
+<b>$NOTIFICATION</b>
+"
+fi
 
 ICON=/usr/share/icons/mxflux.png
 
