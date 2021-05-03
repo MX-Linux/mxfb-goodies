@@ -16,6 +16,13 @@
 #######################################################################################
 ### 4.- Now click Menu > All apps > Update menu. Wait for some seconds while the menu is generated
 
+Encoding=UTF-8
+#
+# i18n - Internationalization
+export TEXTDOMAIN=mxfb-menu-generator
+export TEXTDOMAINDIR="/usr/share/locale"
+
+CATEGORIES="Accessories Development Games Graphics Internet Multimedia Office System Settings"
 
 echo Please wait, creating menu file - stored in ~/.fluxbox/submenus/full_menu ...
 cd $HOME/.fluxbox/
@@ -76,14 +83,14 @@ sed -i '/{ synaptic }/d' ~/.fluxbox/pre-global-menu.txt
 #This array has all the available .desktop file categories we want to have on the menu (note: the "." is a quick and dirty workaround, so the script ignores entry nr 0):
 array1=( . Utility Development Game Graphics Network AudioVideo Office System Settings)
 #This array corresponds to the previous one, but it's the "user friendly name" that shows on the menu- NOTE: this can be translated to any language!
-array2=( . Accessories Development Games Graphics Internet Multimedia Office System Settings)
+array2=( . $CATEGORIES)
 
 #Begin LOCALIZATION OF Category sub-menus to a language - pt, add equivalent section for other languages:
-    if [[ $lang == *"pt"* ]];
-     then
-		array2=( . Acessórios Desenvolvimento Jogos Graficos Internet Multimédia Escritório Sistema 'Definições globais')
-		echo A criar submenus em Português
-    fi
+#    if [[ $lang == *"pt"* ]];
+#    then
+#		array2=( . Acessórios Desenvolvimento Jogos Graficos Internet Multimédia Escritório Sistema 'Definições globais')
+#		echo A criar submenus em Português
+#    fi
 #End LOCALIZATION OF Category sub-menus
     
 #Create the header of the file
