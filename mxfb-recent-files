@@ -2,7 +2,7 @@
 
 ### recentfiles-fbmenu - Recent files menu for fluxbox
 ### Based on "icewm-menu-recentfiles.sh - dynamic menu of recent files" by BobC 09/04/19 for antiX-IceWM
-### Modified by Girafenaine for use on fluxbox and especially MF-Fluxbox, with added options 01/02/21
+### Modified by Girafenaine for use on Fluxbox and especially MF-Fluxbox, with added options 01/02/21
 ### Released under GPLv3
 
 ### to initialize options and vars

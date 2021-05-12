@@ -67,10 +67,6 @@ exit 0
 
 fi
 
-# set idesk to no rotation to avoid conflict << not working
-#sed -i "s/'Background.Delay\:\s*'/'Background.Delay\:\s0'/" ~/.ideskrc
-#sed -i 's/^Background.Delay .*$/Background.Delay 0/' ~/.ideskrc
-
 #Check if the keys file has already been edited to allow costume wallpapers for each workspace:
 ##check if the keys file has a ChangeWorkspace entry
 expression_to_find="ChangeWorkspace"

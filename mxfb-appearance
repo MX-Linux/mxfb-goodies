@@ -1,6 +1,6 @@
 #! /bin/bash
 
-### mxfb-appearance provides graphical access to the rootMenu entries Apparance and Settings > Fluxbox > Toolbar
+### mxfb-appearance provides graphical access to the rootMenu entries Appearance and Settings > Fluxbox > Toolbar
 ## it was released November 2020 by MX Linux Devs under a GPLv3 license 
 
 ## conky-manager-mxfb.png and mx-dockmaker64.png were created by user ceeslans
