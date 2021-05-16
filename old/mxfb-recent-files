@@ -48,7 +48,7 @@ It can display icons. For this feature to work you need to create .png icons in 
 theme that you use (fluxbox menu uses only .png, and most icons are in .svg). You can do that with "sudo nomacs" (and then use
 batch treatment in chosen folders, and save as .png).
 
-Generated menu default path is ~/.fluxbox/recent_files_menu. You can change this with the -m option. The script can sort files
+Generated menu default path is ~/.fluxbox/submenus/recent_files_menu. You can change this with the -m option. The script can sort files
 between personal files (in /home/ and not hidden) and other files (hidden or outside /home/) with the -s option.
 
 #################################
@@ -57,7 +57,7 @@ You may use following options :
 		-s (or --sort)		enable sorting of files between personal files and other files
 		-n (or --number) number-of-files		overwrite system limit for number of recent files to display
 		-m (or --menupath) /path/to/generated/menu		modify default path to write generated menu
-		-i (or --iconthem) chosen-icontheme		modify default icon theme
+		-i (or --icontheme) chosen-icontheme		modify default icon theme
 		-e (or --editor) command-to-execute		modify default command (geany) to open files whose mime types contains "octet" or "shell"
 
 #################################
@@ -65,7 +65,7 @@ To use this script, you could :
 
 	1. Add this script in ~/.fluxbox/scripts/ folder with the name recentfiles-fbmenu, and give it execution permission. 
 
-	2. Add in you fluxbox menu following lines :
+	2. Add in your fluxbox menu following lines :
 		[submenu] (Recent files) 
 			[include] (~/.fluxbox/submenus/recent_files_menu)
 			[separator]
