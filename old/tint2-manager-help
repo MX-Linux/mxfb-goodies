@@ -13,8 +13,3 @@ To start a tint2 config, check it and click "Apply"
 To stop a config, uncheck it and click "Apply"
 The two actions may be combined: check one and uncheck another, then press "Apply"
 
-##########Sessions##########
-Running tint2s are saved to a session file: "tint2-sessionfile" Session files can be run with the "tint2-session" script. 
-To start a session file at login, add the following line to autostart:
-
-           tint2session

@@ -1,11 +1,9 @@
 #! /bin/bash
 
-### mxfb-appearance provides graphical access to the rootMenu entries Apparance and Settings > Fluxbox > Toolbar
+### mxfb-appearance provides graphical access to the rootMenu entries Appearance and Settings > Fluxbox > Toolbar
 ## it was released November 2020 by MX Linux Devs under a GPLv3 license 
-## this app requires the Moka icons that are located in /components
-## they should be placed in the appropriate section of /usr/share/icons/Moka/
-## it also requires nitrogen for background selection and setting and flux-toolbar (in /components)
-## the conky-manager-mxfb.png and the mx-dockmaker64.png were created by user ceeslans
+
+## conky-manager-mxfb.png and mx-dockmaker64.png were created by user ceeslans
 
 TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mxfb-appearance"

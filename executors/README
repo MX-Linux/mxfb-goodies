@@ -1,0 +1,43 @@
+This weather executor was designed and made available to MX-Linux Fluxbox by user Ceeslans.
+
+#####DESCRIPTION#####
+It places an icon in the toolbar, displaying a pictogram of the current weather condition + current temperature.
+This tint2-executor will obtain geo-location details by default - or a fixed location can be set. It also has an option to set the system to 'metric' (celcius) or to 'imperial' (fahrenheit).
+When left-clicking the icon, detailed information about the current weather conditions is displayed in a pop-up window.
+
+#####REQUIREMENTS#####
+--It uses OpenWeatherMaps services. You will need to register to obtain a (free) api-key at: https://openweathermap.org/api, which is to be inserted in the script(s).
+--This script requires 'jq' to be installed, for JSON data parsing.
+
+#####SETUP#####
+--Right-click ~/.config/tint2/ to open the tint2 config in an editor
+1) Add an "E" (for Executor) to the "panel_items" setting, for instance:
+-----
+# Panel
+panel_items = LTSECP
+-----
+2) You will need a new section in the tint2 config file. Here is an example that you can modify as you see fit:
+
+#-------------------------------------
+# Executor	(weather local)
+execp = new
+execp_command = ~/.config/tint2/executors/weather
+execp_interval = 120
+execp_has_icon = 1
+execp_cache_icon = 0
+execp_continuous = 0
+execp_markup = 1
+#execp_tooltip = Right-click for 7days weather forecast...
+execp_lclick_command = notify-send -t 8000 "$($HOME/.config/tint2/executors/weather-current)" -i $HOME/.config/tint2/executors/icons/weather/weather48.png
+execp_mclick_command = xfce4-terminal --hide-menubar --title "Weather Graph [wttr.in]" --geometry 75x45 -x bash -c "curl 'http://v2.wttr.in/'; read -N1;"
+execp_rclick_command = exo-open https://openweathermap.org/city/2747596
+execp_uwheel_command = 
+execp_dwheel_command = 
+execp_font = DejaVu Sans Condensed 10
+execp_font_color = #eeeeee 100
+execp_padding = 4 0 0
+execp_background_id = 0
+execp_centered = 1
+execp_icon_w = 24
+execp_icon_h = 24
+-----

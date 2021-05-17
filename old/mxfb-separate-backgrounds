@@ -1,15 +1,16 @@
 #!/bin/bash
 
 # Script to configure separate backgrounds for each Fluxbox Workspace
-# Written by user PPC and modified by MX Devs, September 2020
+# Written by user PPC and modified by MX Devs 
 # Released under GPLv3
 
 TEXTDOMAINDIR=/usr/share/locale 
 export TEXTDOMAIN="mxfb-separate-backgrounds"
 
-#Confirmation Window:
+#Confirmation Window
+NOTIFICATION=$" Rotate Backgrounds has been disabled to avoid conflict."
 MESSAGE1=$"  This app allows you to configure separate backgrounds for each Workspace  </b>"
-HINT1=$" Selection windows will pop up for each Workspace."
+HINT1=$" Selection windows will pop up  each Workspace."
 HINT2=$" Type \"mxfb\" to jump to the MXFB backgrounds."
 HINT3=$" Select the background you want and click OK."
 NOTE1=$" NOTE 1: Background changes using the menu won't be permanent."
@@ -23,6 +24,16 @@ MESSAGE2=$"Separate backgrounds have been disabled."
 TITLE2=$"Wallpaper selector"
 TITLE3=$"Warning"
 WARNING=$"There is no wallpaper image selected for Workspace $n... Will substitute 'mx_blue.jpg' to avoid any errors."
+
+STRING="Background.Delay: 0"
+
+if ! grep -q "$STRING" $HOME/.ideskrc;
+then
+        sed -i 's/^\([[:blank:]]*Background\.Delay:\).*/\1 0/' "$HOME/.ideskrc"
+yad --timeout=3 --no-buttons --geometry 500x100 --text-align=center --text="
+<b>$NOTIFICATION</b>
+"
+fi
 
 ICON=/usr/share/icons/mxflux.png
 
@@ -55,10 +66,6 @@ fluxbox-remote restart
 exit 0
 
 fi
-
-# set idesk to no rotation to avoid conflict
-sed -i -r 's/Background.Delay:[[:space:]]+1/Background.Delay: 0/' ~/.ideskrc
-
 
 #Check if the keys file has already been edited to allow costume wallpapers for each workspace:
 ##check if the keys file has a ChangeWorkspace entry
@@ -123,4 +130,7 @@ done
 
 #Implement the changes: 
 fluxbox-remote restart
- echo fluxbox restarted, script finished
+pgrep -u $(id -u)  -x idesk >/dev/null &&  idesktoggle idesk refresh
+killall -SIGUSR1 conky 2>/dev/null
+
+echo fluxbox restarted, script finished
