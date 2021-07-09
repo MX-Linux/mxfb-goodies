@@ -4,6 +4,12 @@
 ##and presents the operations in graphical form
 ##It was developed by MX Devs July 2021 and released under GPLv3
 
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN="mxfb-windowoverlay"
+
+TITLE="OPTIONAL WINDOW STYLE CONFIG"
+SUBTITLE="Existing config will be overwritten -- be sure to fill in all fields you want enabled"
+
 helpfile=/usr/share/mxflux/HELP_Windowoverlay
 titlebar=$(echo """,show,hide,tab")
 size=$(echo """,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20")
@@ -14,9 +20,9 @@ sed -i '/border/d' ~/.fluxbox/overlay
 
 yad --text="
 
-<b>OPTIONAL WINDOW STYLE CONFIG</b>
+<b>$TITLE</b>
 
-<b><i>Existing config will be overwritten -- be sure to fill in all fields you want enabled</i></b> 
+<b><i>$SUBTITLE</i></b> 
 
 " \
 --text-align=center \
