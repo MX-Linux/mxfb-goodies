@@ -1,4 +1,4 @@
-mxfb-goodies (21.03.33) UNRELEASED; urgency=medium
+mxfb-goodies (21.07.23) mx; urgency=medium
 
   * added mxfb-bg-rotate
   * moved files created in  menu-generator out of main directory
@@ -7,8 +7,10 @@ mxfb-goodies (21.03.33) UNRELEASED; urgency=medium
   * added wmctrl to dependencies so would work on RPi
   * moved apps being used as default to new repo mxfb-accessories
   * began cleanup after move
+  * finished cleanup
+  * added new windowoverlay app
 
- -- Jerry Bond <jb@X1Cmx>  Sun, 16 May 2021 07:14:08 -0400
+ -- Jerry Bond <jb@X1Cmx>  Fri, 23 Jul 2021 11:09:58 -0400
 
 mxfb-goodies (21.03.28) mx; urgency=medium
 

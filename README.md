@@ -2,7 +2,7 @@
 
 ### Optional scripts for MX-Fluxbox
 
-* **bl-xkcd** -- puts random cartoon from Xkcd on the desktop
+* **bl-xkcd** -- app from bunsenlabs that puts random Xkcd cartoon on the desktop
 
 ![Xkcd](/pix/bl-xkcd.png)
 
@@ -14,15 +14,14 @@
 
 ![Appearance settings](/pix/appearance.png)
 
-* **mxfb-flux-toolbar** -- Nice graphic presentation of common Fluxbox toolbar settings
+* **mxfb-flux-toolbar** -- Graphic presentation of common Fluxbox toolbar settings
 
 ![Fluxbox toolbar](/pix/flux-toolbar.png)
-
-* **mxfb-menu-generator** -- Creates a menu with typical Debian categories
-
-![Quickshot](/pix/shot.png)
 
 * **mxfb-simple-weather** -- Presents a 3-day forecast in a terminal screen
 
 ![Weather](/pix/weather.png)
 
+* **mxfb-windowoverlay** -- Graphic presentation of native Fluxbox ability to set titlebar and border options
+
+![Windowoverlay](/pix/windowoverlay.png)

@@ -2,7 +2,7 @@
 
 ##This app uses information in the Fluxbox Wiki: http://fluxbox-wiki.org/Make_windows_only_show_a_border.html 
 ##and presents the operations in graphical form
-##It was developed by MX Devs July 2021 and released under GPLv3
+##It was developed by MX Devs July 2021 and released as a beta under GPLv3
 
 TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mxfb-windowoverlay"
@@ -13,7 +13,7 @@ SUBTITLE="Existing config will be overwritten -- be sure to fill in all fields y
 helpfile=/usr/share/mxflux/HELP_Windowoverlay
 titlebar=$(echo """,show,hide,tab")
 size=$(echo """,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20")
-color=$(echo """,red,orange,yellow,green,blue,purple,black")
+color=$(echo """,Red,Orange,Yellow,Green,Blue,Cyan,Purple,White,Black,Brown,Magenta,Tan,Olive,Maroon,Navy,Aquamarine,Turquoise,Silver,Lime,Teal,Indigo,Violet,Pink,Gray,Black")
 
 #remove existing config from overlay
 sed -i '/border/d' ~/.fluxbox/overlay
@@ -39,6 +39,10 @@ echo "window.borderWidth: `echo $line | awk -F',' '{print $3}'`" >> /tmp/border
 echo "window.focus.borderColor: `echo $line | awk -F',' '{print $4}'`" >> /tmp/border
 echo "window.unfocus.borderColor: `echo $line | awk -F',' '{print $5}'`" >> /tmp/border
 done
+
+if [ retval -eq 1 ]; then
+exit 0
+fi
 
 ## titlebar config ##
 if grep -Fq "hide" /tmp/init
