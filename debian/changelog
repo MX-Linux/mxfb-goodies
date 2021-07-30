@@ -1,3 +1,9 @@
+mxfb-goodies (21.07.29) mx; urgency=medium
+
+  * final small changes for release
+
+ -- Jerry Bond <jb@X1Cmx>  Thu, 29 Jul 2021 20:30:56 -0400
+
 mxfb-goodies (21.07.23) mx; urgency=medium
 
   * added mxfb-bg-rotate
