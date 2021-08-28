@@ -1,3 +1,9 @@
+mxfb-goodies (21.07.30) UNRELEASED; urgency=medium
+
+  * added fluxbox-keys-merger
+
+ -- Jerry Bond <jb@X1Cmx>  Sat, 28 Aug 2021 05:07:42 -0400
+
 mxfb-goodies (21.07.29) mx; urgency=medium
 
   * final small changes for release
