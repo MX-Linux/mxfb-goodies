@@ -9,4 +9,4 @@ components/HELP_windowoverlay /usr/share/mxflux
 executors/weather/* ~/.config/tint2/executors
 mxfb-* usr/bin
 fluxbox-keys-merger usr/bin
-bl-xkcd usr/bin
+#bl-xkcd usr/bin
