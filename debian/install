@@ -5,8 +5,8 @@ fluxbox-keys-merger usr/bin
 rofi-extras/* usr/share/rofi/rofi-extras
 components/*-help ~/.config/rofi
 components/config.rasi ~/.config/rofi
-conponents/mxrr-help.png ~/.config/rofi
-conponents/template.rasi ~/.config/rofi/themes
-conponents/MX-comfort.rasi ~/.config/rofi/themes
-conponents/mxrr.desktop usr/share/applications
-conponents/mxrr-icon.png usr/share/pixmaps
+components/mxrr-help.png ~/.config/rofi
+components/template.rasi ~/.config/rofi/themes
+components/MX-comfort.rasi ~/.config/rofi/themes
+components/mxrr.desktop usr/share/applications
+components/mxrr-icon.png usr/share/pixmaps
