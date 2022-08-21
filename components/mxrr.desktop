@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=MX-Rofi-Recolor
+Comment=Change rofi theme colors
+Comment[de]=Farben des rofi-Themas ändern
+Comment[el]=Αλλαγή χρωμάτων θέματος rofi
+Comment[es]=Cambiar los colores del rofi
+Comment[fr]=Changer les couleurs du thème rofi
+Comment[fr_BE]=Modifier les couleurs du thème rofi
+Comment[it]=Cambiare i colori del tema rofi
+Comment[ja]=rofiのテーマカラーを変更する
+Comment[nl]=Verander rofi themakleuren
+Comment[pl]=Zmiana kolorów motywu rofi
+Comment[pt]=Mudar as cores do tema rofi
+Comment[ru]=Изменить цвета темы rofi
+Comment[sv]=Ändra färger på rofi-temat
+Comment[zh]=改变rofi主题颜色
+Exec=mxrr
+Icon=/usr/share/pixmaps/mxrr-icon.png
+Terminal=false
+OnlyShowIn=fluxbox
+Categories=System;

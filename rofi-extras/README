@@ -1,0 +1,10 @@
+This folder contains rofi components that are being considered by MX Fluxbox Devs for future releases.
+
+1. config.rasi -- a configuration that includes 3 tabs
+
+--drun: the MX-21 default that displays available apps
+--calc: a powerful calculation engine. To remove, delete "calc," from the config.rasi 
+--help: a set of links about using rofi
+-----requires that ##rofi-help## and ##calc-help## be in the same folder as config.rasi
+
+2. Two themes ##mx-fancy.rasi## and ##mx-sidebar.rasi## that are being evaluated. These themes can not be modified with the new MX Rofi recolor and must be changed manually.

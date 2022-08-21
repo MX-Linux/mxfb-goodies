@@ -1,0 +1,12 @@
+Hints and tips
+
+--qalc (https://qalculate.github.io/manual/qalc.html) runs in the background
+--standard operators: +, -, *, /, ^, sq,sqrt, etc.; also common natural language elements
+--conversions (units of measure)
+--currency exchange
+--examples
+>>“22^2 * pi” for area of circle
+>>“64km to miles”, "3lb to kg"
+>>"100 dollars to euros"
+
+Detailed help: https://github.com/svenstaro/rofi-calc
