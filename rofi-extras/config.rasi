@@ -1,6 +1,6 @@
 configuration {
 	
-	modi: "drun,calc,help:~/.config/rofi/rofi-help";
+	modi: "drun,calc:qalc,help:~/.config/rofi/rofi-help";
 	width: 20;
 	show-icons: true;
 	icon-theme: "papirus";

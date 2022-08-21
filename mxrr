@@ -1,7 +1,7 @@
 #!/bin/bash
 #mxrr MX-comfort-rofi-recolor
 #Tool to edit colors in MX-comfort rofi theme
-#V.0.5 by Melber and MX Devs, 21 August 2022
+#V.0.5b by Melber and MX Devs, 21 August 2022
 #License: GPL-3.0+
 
 #define some variables
@@ -9,12 +9,9 @@
 TITLE="MX-rofi-recolor"
 CLASS="mxrr"
 ROFIPATH="$HOME/.config/rofi/themes"
-ICONPATH="/usr/share/pixmaps/mxrr-icon.png"
+ICONPATH="/usr/share/pixmaps/mxcr-icon.png"
 #HELPPATH="/usr/share/pixmaps/mxrr-help.png"
 
-# add locale
-TEXTDOMAINDIR=/usr/share/locale 
-export TEXTDOMAIN="mxfb-goodies"
 
 #delete stylelist and tempclr after use
 trap "rm -r "$ROFIPATH/tempdir" " EXIT
@@ -34,8 +31,31 @@ if [ ! -d $ROFIPATH/tempdir ]; then
 
 fi
 
+# notify user and back up config.rasi if mxrr has not already been launched
 
-# Check if mxrr.txt exists, create if false
+if [ ! -f $ROFIPATH/MX-comfort-rr ]; then
+
+NOW=$(date +%Y"%m%d")
+
+MESSAGE=$"This tool edits the config.rasi file.\n\nThe existing config.rasi file will be backed up as \n\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
+
+##begin message box
+yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=350 --height=200 --text-align=center --text="\n\n$MESSAGE\n\n" --text-align=center --center --borders=20 --button="Cancel":7 --button=$"OK to proceed?":6
+
+
+if [ ! "$?" = "6" ]; then
+    exit 0
+
+else
+
+mkdir -p $HOME/.restore/rofi/
+cp $HOME/.config/rofi/config.rasi $HOME/.restore/rofi/config.rasi_$(date -d "today" +"%Y%m%d")
+
+fi
+fi
+
+
+# Check if MX-comfort-rr exists, create if false
 
 if [ ! -f $ROFIPATH/MX-comfort-rr ]; then
 
@@ -54,7 +74,7 @@ sed -i 's|-rr||g' $ROFIPATH/tempdir/themelist.txt
 
 #select starting style
 
-BASESTYLE=$( yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --text=$"\n<b> Choose which theme to use as a starting point</b>\n" --center --width=400 --height=300 --center --list --no-headers --separator="" --column=Style < $ROFIPATH/tempdir/themelist.txt )
+BASESTYLE=$( yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --text="\n<b> Choose which theme to use as a starting point</b>\n" --width=350 --height=300 --center --list --no-headers --separator="" --column=Style --text-align=center < $ROFIPATH/tempdir/themelist.txt )
 
 GETOUT=$(echo "$?")
 
@@ -67,7 +87,7 @@ fi
 
 if [ -z "$BASESTYLE" ]; then
 
-  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --text=$"No theme selected.\n\n<b>MX-comfort</b> will be used as the starting theme." --button=OK --text-align=center --center --width=400 --height=200 --borders=20 \
+  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --text="No theme selected.\n\n<b>MX-comfort</b> will be used as the starting theme." --button=OK --text-align=center --center --width=400 --height=200 --borders=20 \
 
   BASESTYLE=MX-comfort
 
@@ -101,7 +121,7 @@ color_picker() {
     local N=$1 C="$2"
     local YAD=(
             yad
-            --title=$"mxrr-color-selector"
+            --title="mxrr-colour-selector"
             --class=color-select
             --window-icon=color-select
             --posx=200
@@ -117,7 +137,7 @@ color_picker() {
 # function to be called with help button
 
 mxrrhelp() {
-yad --title="MX-Rofi-recolor help"  --class=mxrrhelp --window-icon=/usr/share/pixmaps/mxrr-icon.png --borders=20 --fixed --center --width=600 --height=400 --image ~/.config/rofi/mxrr-help.png --button=$"Return to Main Window":1 \
+yad --title="MX-Rofi-recolor help"  --class=mxrrhelp --window-icon=/usr/share/pixmaps/mxcr-icon.png --borders=20 --fixed --center --width=600 --height=400 --image ~/.config/rofi/mxrr-help.png --button="Return to Main Window":1 \
 
 }
 
@@ -127,13 +147,13 @@ export -f color_picker mxrrhelp
 #color selection dialogue
 
 MAIN=(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --borders=20 --center --width=600 --height=400 --fixed --form --columns=5 --align=right --separator=" " --button="gtk-help":"bash -c mxrrhelp" --button="gtk-quit":1 --button="gtk-ok":0 \
---text=$"<b>\nEdit colors and create a new rofi theme.\n\n</b>" \
---field=$"Title Background":CLR "$COL01" \
---field=$"Title Text":CLR "$COL02" \
---field=$"Searchbar Background":CLR "$COL03" \
---field=$"Searchbar Text":CLR "$COL04" \
---field=$"Inactive Tab Background":CLR "$COL05" \
---field=$"Inactive Tab Text":CLR "$COL06" \
+--text="<b>\nEdit colors and create a new rofi theme.\n\n</b>" \
+--field="Title Background":CLR "$COL01" \
+--field="Title Text":CLR "$COL02" \
+--field="Searchbar Background":CLR "$COL03" \
+--field="Searchbar Text":CLR "$COL04" \
+--field="Inactive Tab Background":CLR "$COL05" \
+--field="Inactive Tab Text":CLR "$COL06" \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
@@ -146,11 +166,11 @@ MAIN=(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --borders=
 --field=" ":LBL " " \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
---field=$"Active Tab Background":CLR "$COL07" \
---field=$"Active Tab Text":CLR "$COL08" \
---field=$"Active Tab Highlight":CLR "$COL09" \
---field=$"Selection Background":CLR "$COL10" \
---field=$"Selection Text":CLR "$COL11" \
+--field="Active Tab Background":CLR "$COL07" \
+--field="Active Tab Text":CLR "$COL08" \
+--field="Active Tab Highlight":CLR "$COL09" \
+--field="Selection Background":CLR "$COL10" \
+--field="Selection Text":CLR "$COL11" \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
@@ -164,10 +184,10 @@ MAIN=(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --borders=
 --field=" ":LBL " " \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
---field=$"<b>  Name for new theme        </b>":LBL " " \
+--field="<b>  Name for new theme        </b>":LBL " " \
 --field=" " ""$NEWNAME"" \
---field=$"<b>  Make new theme current?</b>":LBL " " \
---field=$" ":CB "yes!no" \
+--field="<b>  Make new theme current?</b>":LBL " " \
+--field=" ":CB "yes!no" \
 --field=" ":LBL " " \
 --field=" ":LBL " " \
 )
@@ -210,9 +230,9 @@ if [ "$NEWNAME" = 'yes' -o "$NEWNAME" = 'no' ]; then
 
   MAKECUR="$NEWNAME"  
 
-  NEWNAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --text=$"No Theme name !" --form --center --borders=20 --separator="" \
-  --field=$"<b>Name for new theme</b>":LBL " " \
-  --field=$" " "New theme name" )
+  NEWNAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --text="No Theme name !" --form --center --borders=20 --separator="" \
+  --field="<b>Name for new theme</b>":LBL " " \
+  --field=" " "New theme name" )
     
     GETOUT=$(echo "$?")
 
@@ -229,9 +249,9 @@ fi
 
 while [ -z "$NEWNAME" -o "$NEWNAME" = 'MX-comfort' -o "$NEWNAME" = 'MX-comfort-dark' -o "$NEWNAME" = 'MX-comfort-plus' -o "$NEWNAME" = 'MX-comfort-plus-dark' ]; do
 
-  NEWNAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --text=$"Theme name "$NEWNAME" is protected. Choose another name." --form --center --borders=20 --separator="" \
-  --field=$"<b>Name for new style</b>":LBL " " \
-  --field=$" " "$NEWNAME-new" )
+  NEWNAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --text="Theme name "$NEWNAME" is protected. Choose another name." --form --center --borders=20 --separator="" \
+  --field="<b>Name for new style</b>":LBL " " \
+  --field=" " "$NEWNAME-new" )
 
     GETOUT=$(echo "$?")
 
@@ -250,15 +270,15 @@ cd $ROFIPATH
 
 while [ -f $NEWNAME.rasi ]; do
 
-  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --fixed --text=$"A Theme with this name already exists. \n\nDo you want to overwrite <b>"$NEWNAME"</b>\or save as a different theme name?\n" --button=$"Overwrite $NEWNAME":2 --button=$"Save as different theme name":3 --text-align=center --center --borders=20\
+  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --fixed --text="A Theme with this name already exists. \n\nDo you want to overwrite <b>"$NEWNAME"</b>\nor save as a different theme name\n" --button="Overwrite $NEWNAME":2 --button="Save as different theme name":3 --text-align=center --center --borders=20\
 
     case $? in
 
     2) rm -r $ROFIPATH/$NEWNAME.rasi   ;;
 
     3) NEWNAME=$(yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --form --center --borders=20 --separator="" \
-    --field=$"<b>Name for new theme</b>":LBL " " \
-    --field=$" " "$NEWNAME-new" )    ;;
+    --field="<b>Name for new theme</b>":LBL " " \
+    --field=" " "$NEWNAME-new" )    ;;
 
     252) exit 0    ;;
 
@@ -301,17 +321,17 @@ ROFIOLD=$(echo "${ROFIOLD}" | sed -e 's/[]$\/*[\^]/\\&/g' )
 ROFINEW="@import \""$ROFIPATH"/"$NEWNAME".rasi"\"
 ROFINEW=$(echo "${ROFINEW}" | sed -e 's/[]$\/*[\^]/\\&/g' )
 
-sed -i -e "s/$ROFIOLD/$ROFINEW/g" config.rasi
+sed -i -e "s/${ROFIOLD}/${ROFINEW}/g" config.rasi
 
 
-  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --center --borders=20 --text=$"All done!\n<b>"$NEWNAME"</b> has been set as the current rofi theme.\n\nYou can change themes with <b>rofi-theme-selector</b>" --text-align=center --button="OK" \
+  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=200 --fixed --center --borders=20 --text="All done!\n<b>"$NEWNAME"</b> has been set as the current rofi theme.\n\nYou can change themes with <b>rofi-theme-selector</b>" --text-align=center --button="OK" \
 
 fi
 
 
 if [ "$MAKECUR" = no ]; then
 
-  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=250 --fixed --center --borders=20 --text=$"All done!\n<b>"$NEWNAME"</b> theme has been created.\n\nYou can change themes with <b>rofi-theme-selector</b>" --text-align=center --button="OK" \
+  yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=400 --height=250 --fixed --center --borders=20 --text="All done!\n<b>"$NEWNAME"</b> theme has been created.\n\nYou can change themes with <b>rofi-theme-selector</b>" --text-align=center --button="OK" \
   
 fi
 
