@@ -1,3 +1,9 @@
+mxfb-goodies (22.08.22) mx; urgency=medium
+
+  * Restored localization prompts
+
+ -- Jerry <jb@mx>  Sun, 21 Aug 2022 20:28:11 -0400
+
 mxfb-goodies (22.08.21) mx; urgency=medium
 
   * updated mxrr to include user warning and backup config
