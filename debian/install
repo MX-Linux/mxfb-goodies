@@ -1,12 +1,14 @@
-executors/weather/* ~/.config/tint2/executors
+executors/weather/* ~/.config/share/tint2/executors
 mxfb-* usr/bin
 mxrr usr/bin
 fluxbox-keys-merger usr/bin
 rofi-extras/* usr/share/rofi/rofi-extras
-components/*-help ~/.config/rofi
-components/config.rasi ~/.config/rofi
-components/mxrr-help.png ~/.config/rofi
-components/template.rasi ~/.config/rofi/themes
-components/MX-comfort.rasi ~/.config/rofi/themes
 components/mxrr.desktop usr/share/applications
+components/*-help /usr/share/rofi
+components/config.rasi /usr/share/rofi
+components/mxrr-help.png /usr/share/pixmaps
 components/mxrr-icon.png usr/share/pixmaps
+components/template.rasi /usr/share/mxrr
+components/MX-comfort.rasi /usr/share/mxrr
+
+
