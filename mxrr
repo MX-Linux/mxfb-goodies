@@ -9,7 +9,7 @@
 TITLE="MX-rofi-recolor"
 CLASS="mxrr"
 ROFIPATH="$HOME/.config/rofi/themes"
-ICONPATH="/usr/share/pixmaps/mxcr-icon.png"
+ICONPATH="/usr/share/pixmaps/mxrr-icon.png"
 #HELPPATH="/usr/share/pixmaps/mxrr-help.png"
 
 
@@ -37,7 +37,7 @@ if [ ! -f $ROFIPATH/MX-comfort-rr ]; then
 
 NOW=$(date +%Y"%m%d")
 
-MESSAGE=$"This tool edits the config.rasi file.\n\nThe existing config.rasi file will be backed up as \n\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
+MESSAGE=$"This tool edits the rofi config file.\n\nThe existing file will be backed up as \n\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
 
 ##begin message box
 yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --width=350 --height=200 --text-align=center --text="\n\n$MESSAGE\n\n" --text-align=center --center --borders=20 --button="Cancel":7 --button=$"OK to proceed?":6
@@ -50,6 +50,11 @@ else
 
 mkdir -p $HOME/.restore/rofi/
 cp $HOME/.config/rofi/config.rasi $HOME/.restore/rofi/config.rasi_$(date -d "today" +"%Y%m%d")
+cp /usr/share/rofi/config.rasi $HOME/.config/rofi/
+cp /usr/share/rofi/rofi-help $HOME/.config/rofi/
+cp /usr/share/rofi/calc-help $HOME/.config/rofi/
+cp /usr/share/mxrr/template.rasi $HOME/.config/rofi/themes/
+cp /usr/share/mxrr/MX-comfort.rasi $HOME/.config/rofi/themes/
 
 fi
 fi
@@ -121,7 +126,7 @@ color_picker() {
     local N=$1 C="$2"
     local YAD=(
             yad
-            --title="mxrr-color-selector"
+            --title=$"mxrr-color-selector"
             --class=color-select
             --window-icon=color-select
             --posx=200
@@ -137,7 +142,7 @@ color_picker() {
 # function to be called with help button
 
 mxrrhelp() {
-yad --title=$"MX-Rofi-recolor help"  --class=mxrrhelp --window-icon=/usr/share/pixmaps/mxcr-icon.png --borders=20 --fixed --center --width=600 --height=400 --image ~/.config/rofi/mxrr-help.png --button=$"Return to Main Window":1 \
+yad --title=$"MX-Rofi-recolor help"  --class=mxrrhelp --window-icon="$ICONPATH" --borders=20 --fixed --center --width=600 --height=400 --image usr/share/pixmaps/mxrr-help.png --button=$"Return to Main Window":1 \
 
 }
 
