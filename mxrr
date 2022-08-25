@@ -126,7 +126,7 @@ color_picker() {
     local N=$1 C="$2"
     local YAD=(
             yad
-            --title="mxrr-color-selector"
+            --title=$"mxrr-color-selector"
             --class=color-select
             --window-icon=color-select
             --posx=200
