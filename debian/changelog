@@ -1,3 +1,10 @@
+mxfb-goodies (22.08.26) mx; urgency=medium
+
+  * corrected error in mxrr script for help image
+  * ready for packaging and distribution
+
+ -- Jerry <jb@mx>  Fri, 26 Aug 2022 21:37:40 -0400
+
 mxfb-goodies (22.08.25) mx; urgency=medium
 
   * minor fixes to localization

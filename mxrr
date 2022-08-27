@@ -142,7 +142,7 @@ color_picker() {
 # function to be called with help button
 
 mxrrhelp() {
-yad --title=$"MX-Rofi-recolor help"  --class=mxrrhelp --window-icon="$ICONPATH" --borders=20 --fixed --center --width=600 --height=400 --image usr/share/pixmaps/mxrr-help.png --button=$"Return to Main Window":1 \
+yad --title=$"MX-Rofi-recolor help"  --class=mxrrhelp --window-icon="$ICONPATH" --borders=20 --fixed --center --width=600 --height=400 --image /usr/share/pixmaps/mxrr-help.png --button=$"Return to Main Window":1 \
 
 }
 
