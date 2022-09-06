@@ -1,0 +1,7 @@
+#!/bin/bash
+#Action selector for Rofi Manaager
+
+TITLE=$"Rofi Manager"
+DOWHAT=$"What do you want to do?"
+
+yad --title="$TITLE" --class="$CLASS" --window-icon="$ICONPATH" --borders=20 --text-align=center --width=400 --height=300 --text="\n\n\n<b>$DOWHAT</b>\n\nRecolor a rofi theme based on 'Comfort'\n\nEdit a rofi theme not based on 'Comfort'\n\nChange the current rofi theme" --fixed --form --button="Recolor":3 --button="Edit":1 --button="Change":2 --button=gtk-cancel:1
