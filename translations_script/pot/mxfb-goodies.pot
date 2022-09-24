@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-24 19:19-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../mxrr:240 ../mxrr:259 ../mxrr:286
+msgid " "
+msgstr ""
+
+#: ../mxrr:258
+msgid "<b>Name for new style</b>"
+msgstr ""
+
+#: ../mxrr:239 ../mxrr:285
+msgid "<b>Name for new theme</b>"
+msgstr ""
+
+#. MAIN
+#. color selection dialogue
+#: ../mxrr:155
+msgid "<b>\\nEdit colors and create a new rofi theme.\\n\\n</b>"
+msgstr ""
+
+#: ../mxrr:278
+msgid ""
+"A Theme with this name already exists. \\n\\nDo you want to overwrite <b>"
+msgstr ""
+
+#: ../mxrr:174
+msgid "Active Tab Background"
+msgstr ""
+
+#: ../mxrr:176
+msgid "Active Tab Highlight"
+msgstr ""
+
+#: ../mxrr:175
+msgid "Active Tab Text"
+msgstr ""
+
+#: ../mxrr:332 ../mxrr:339
+msgid "All done!\\n<b>"
+msgstr ""
+
+#: ../mxrr:160
+msgid "Inactive Tab Background"
+msgstr ""
+
+#: ../mxrr:161
+msgid "Inactive Tab Text"
+msgstr ""
+
+#: ../mxrr:145
+msgid "MX-Rofi-recolor help"
+msgstr ""
+
+#: ../mxrr:238
+msgid "No Theme name!"
+msgstr ""
+
+#: ../mxrr:95
+msgid ""
+"No theme selected.\\n\\n<b>MX-comfort</b> will be used as the starting theme."
+msgstr ""
+
+#. #begin message box
+#: ../mxrr:43
+msgid "OK to proceed?"
+msgstr ""
+
+#: ../mxrr:278
+#, sh-format
+msgid "Overwrite $NEWNAME"
+msgstr ""
+
+#: ../mxrr:145
+msgid "Return to Main Window"
+msgstr ""
+
+#: ../mxrr:278
+msgid "Save as different theme name"
+msgstr ""
+
+#: ../mxrr:158
+msgid "Searchbar Background"
+msgstr ""
+
+#: ../mxrr:159
+msgid "Searchbar Text"
+msgstr ""
+
+#: ../mxrr:177
+msgid "Selection Background"
+msgstr ""
+
+#: ../mxrr:178
+msgid "Selection Text"
+msgstr ""
+
+#: ../mxrr:257
+msgid "Theme name "
+msgstr ""
+
+#: ../mxrr:40
+#, sh-format
+msgid ""
+"This tool edits the rofi config file.\\n\\nThe existing file will be backed "
+"up as \\n\\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
+msgstr ""
+
+#: ../mxrr:156
+msgid "Title Background"
+msgstr ""
+
+#: ../mxrr:157
+msgid "Title Text"
+msgstr ""
+
+#. select starting style
+#: ../mxrr:82
+msgid "\\n<b> Choose which theme to use as a starting point</b>\\n"
+msgstr ""
+
+#: ../mxrr:129
+msgid "mxrr-color-selector"
+msgstr ""
