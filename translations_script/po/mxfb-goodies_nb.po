@@ -4,195 +4,140 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kristian B <mopardud@hotmail.com>, 2020
-# Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2020
+# heskjestad <cato@heskjestad.xyz>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-27 13:17-0600\n"
+"POT-Creation-Date: 2022-09-24 19:19-0400\n"
 "PO-Revision-Date: 2020-10-01 02:35+0000\n"
-"Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2020\n"
+"Last-Translator: heskjestad <cato@heskjestad.xyz>, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/anticapitalista/teams/10162/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mxfb-appearance:13
-msgid "Fluxbox Appearance"
-msgstr "Fluxbox-utseende"
+#: ../mxrr:258
+msgid "<b>Name for new style</b>"
+msgstr "<b>Den nye stilens navn</b>"
 
-#: mxfb-appearance:14
-msgid "Toolbar"
-msgstr "Verktøylinje"
+#: ../mxrr:239 ../mxrr:285
+msgid "<b>Name for new theme</b>"
+msgstr "<b>Det nye temasettets navn</b>"
 
-#: mxfb-appearance:15
-msgid "Conky"
-msgstr "Conky"
+#. MAIN
+#. color selection dialogue
+#: ../mxrr:155
+msgid "<b>\\nEdit colors and create a new rofi theme.\\n\\n</b>"
+msgstr "<b>\\nRediger farger og lag et nytt rofi-temasett.\\n\\n</b>"
 
-#: mxfb-appearance:16
-msgid "Docks"
-msgstr "Samlevinduer"
+#: ../mxrr:278
+msgid "A Theme with this name already exists. \\n\\nDo you want to overwrite <b>"
+msgstr ""
+"Det finnes allerede et temasett som heter dette.\\n\\nVil du overskrive <b>"
 
-#: mxfb-appearance:17
-msgid "Desktop icons"
-msgstr "Skrivebordsikoner"
+#: ../mxrr:174
+msgid "Active Tab Background"
+msgstr "Bakgrunn for aktiv fane"
 
-#: mxfb-appearance:18
-msgid "Style"
-msgstr "Stil"
+#: ../mxrr:176
+msgid "Active Tab Highlight"
+msgstr "Utheving av aktiv fane"
 
-#: mxfb-appearance:19
-msgid "Theme"
-msgstr "Tema"
+#: ../mxrr:175
+msgid "Active Tab Text"
+msgstr "Tekst i aktiv fane"
 
-#: mxfb-appearance:20
-msgid "Toolbar toggle"
-msgstr "Veksle verktøylinje av/på"
+#: ../mxrr:332 ../mxrr:339
+msgid "All done!\\n<b>"
+msgstr "Fullført\\n <b>"
 
-#: mxfb-appearance:21
-msgid "Wallpaper"
-msgstr "Bakgrunn"
+#: ../mxrr:160
+msgid "Inactive Tab Background"
+msgstr "Bakgrunn for inaktiv fane"
 
-#: mxfb-recent-files:12
-msgid "Recent files"
-msgstr "Nylige filer"
+#: ../mxrr:161
+msgid "Inactive Tab Text"
+msgstr "Tekst i inaktiv fane"
 
-#: mxfb-recent-files:13
-msgid "CLICK HERE TO SORT BY PATH"
-msgstr "KLIKK HER FOR Å SORTERE ETTER STI"
+#: ../mxrr:145
+msgid "MX-Rofi-recolor help"
+msgstr "Hjelpetekst for MX-Rofi-recolor"
 
-#: mxfb-separate-backgrounds:11
+#: ../mxrr:238
+msgid "No Theme name!"
+msgstr "Mangler navn for temasett"
+
+#: ../mxrr:95
 msgid ""
-"  This app allows you to configure separate backgrounds for each Workspace  "
-"</b>"
-msgstr ""
-"Dette programmet lar deg sette opp ulike bakgrunner for hvert skrivebord</b>"
+"No theme selected.\\n\\n<b>MX-comfort</b> will be used as the starting "
+"theme."
+msgstr "Ingen temasett valgt.\\n\\n<b>MX-comfort</b> vil tas i bruk som temasett."
 
-#: mxfb-separate-backgrounds:12
-msgid " Selection windows will pop up for each Workspace."
-msgstr "Utvalgsvinduer vil sprette opp for hvert skrivebord."
-
-#: mxfb-separate-backgrounds:13
-msgid " Type \\"
-msgstr "Skriv \\"
-
-#: mxfb-tiles:10
-msgid ""
-"This script will back up your current keys file, then install commands for tiling to the end of the file. \\n\n"
-"</b>"
-msgstr ""
-"Dette skriptet vil reservekopiere gjeldende nøkkelfil og deretter installere kommandoer for flislegging til slutten av fila. \\n\n"
-"</b>"
-
-#: mxfb-tiles:12
-msgid "Features: 1/2 screen, 1/4 screen, 1/3 screen and restore \\n"
-msgstr ""
-"Funksjonalitet: 1/2 skjerm, 1/4 skjerm, 1/3 skjerm og gjenoppretting \\n"
-
-#: mxfb-tiles:13
-msgid "Multiple options for number keys and keyboard"
-msgstr "En del alternativer for talltaster og tastatur"
-
-#: mxfb-tiles:14
+#. #begin message box
+#: ../mxrr:43
 msgid "OK to proceed?"
 msgstr "Vil du fortsette?"
 
-#: mxfb-tiles:15
-msgid ""
-"The code has been inserted successfully. Now there are 3 methods to do the "
-"tiling</b>"
-msgstr "Koden ble satt inn. Det er nå tre måter å flislegge på </b>"
+#: ../mxrr:278
+#, sh-format
+msgid "Overwrite $NEWNAME"
+msgstr "Overskriv $NEWNAME"
 
-#: mxfb-tiles:16
+#: ../mxrr:145
+msgid "Return to Main Window"
+msgstr "Gå tilbake til hovedvinduet"
+
+#: ../mxrr:278
+msgid "Save as different theme name"
+msgstr "Lagre temasett med annet navn"
+
+#: ../mxrr:158
+msgid "Searchbar Background"
+msgstr "Søkbar bakgrunn"
+
+#: ../mxrr:159
+msgid "Searchbar Text"
+msgstr "Søkbar tekst"
+
+#: ../mxrr:177
+msgid "Selection Background"
+msgstr "Bakgrunn for utvalg"
+
+#: ../mxrr:178
+msgid "Selection Text"
+msgstr "Utvalgt tekst"
+
+#: ../mxrr:257
+msgid "Theme name "
+msgstr "Temasettets navn"
+
+#: ../mxrr:40
+#, sh-format
 msgid ""
-"<u>Number keys</u> \n"
-"  Control + 1-4: half\n"
-"  Control + 5-8: quarter\n"
-"  Control + 9: third \n"
-"  Control + 0: toggle maximize"
+"This tool edits the rofi config file.\\n\\nThe existing file will be backed "
+"up as \\n\\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
 msgstr ""
-"<u>Vanlige talltaster</u>\n"
-"Ctrl + 1-4: halv\n"
-"Ctrl + 5-8:kvart\n"
-"Ctrl + 9: tredel\n"
-"Ctrl + 0: veksle maksimering"
+"Dette verktøyet redigerer oppsettsfil for rofi.\\n\\nEksisterende fil vil "
+"reservekopieres til \\n\\n$HOME/.restore/rofi/config.rasi_$NOW<b>"
 
-#: mxfb-tiles:21
-msgid ""
-"<u>Arrow keys</u>\n"
-"  Alt + Arrow: half \n"
-"  Alt + LogoKey + Arrow: quarter\\n"
-msgstr ""
-"<u>Piltaster</u>\n"
-"Alt + pil: halv\n"
-"Alt + Win + pil: kvart\\n"
+#: ../mxrr:156
+msgid "Title Background"
+msgstr "Bakgrunn for tittel"
 
-#: mxfb-tiles:24
-msgid ""
-"<u>Keypad</u>\n"
-"  Alt + 2,4,6,8: half\n"
-"  Alt + 1,3,7,9: quarter\n"
-"  Alt + 5: center\n"
-"  Alt + 0: toggle maximize"
-msgstr ""
-"<u>Talltastaturet</u>\n"
-"Alt + 2, 4, 6, 8: halv\n"
-"Alt + 1, 3, 7, 9: kvart\n"
-"Alt + 5: senter\n"
-"Alt + 0: veksle maksimering"
+#: ../mxrr:157
+msgid "Title Text"
+msgstr "Titteltekst"
 
-#: mxfb-tiles:29
-msgid "Usage options"
-msgstr "Alternativer for bruk"
+#. select starting style
+#: ../mxrr:82
+msgid "\\n<b> Choose which theme to use as a starting point</b>\\n"
+msgstr "\\n<b>Velg et temasett å starte med</b>\\n"
 
-#: mxfb-timer:24
-msgid "MXFB Timer"
-msgstr "MXFB-tidtaker"
-
-#: mxfb-timer:25
-msgid "Enter local time"
-msgstr "Angi lokaltid"
-
-#: mxfb-timer:26
-msgid "or number and unit"
-msgstr "eller tall og enhet"
-
-#: mxfb-timer:27
-msgid "Click \"Check...\" button to confirm time and date are correct"
-msgstr "Velg knappen «Sjekk …» for å bekrefte at dato og tid er riktig"
-
-#: components/flux-toolbar:12
-msgid "Basic Toolbar Configuration"
-msgstr "Oppsett av verktøylinje"
-
-#: components/flux-toolbar:13
-msgid "Position"
-msgstr "Posisjon"
-
-#: components/flux-toolbar:14
-msgid "Auto-hide"
-msgstr "Skjul automatisk"
-
-#: components/flux-toolbar:15
-msgid "Layer (screen priority)"
-msgstr "Lag (skjermprioritet)"
-
-#: components/flux-toolbar:16
-msgid "Width"
-msgstr "Bredde"
-
-#: components/flux-toolbar:17
-msgid "Height"
-msgstr "Høyde"
-
-#: components/flux-toolbar:18
-msgid "Show/Hide"
-msgstr "Vis/skjul"
-
-#: components/flux-toolbar:19
-msgid "Transparency"
-msgstr "Gjennomsiktighet"
+#: ../mxrr:129
+msgid "mxrr-color-selector"
+msgstr "mxrr-color-selector"

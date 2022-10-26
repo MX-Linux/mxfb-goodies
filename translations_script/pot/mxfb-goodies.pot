@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../mxrr:240 ../mxrr:259 ../mxrr:286
-msgid " "
-msgstr ""
-
 #: ../mxrr:258
 msgid "<b>Name for new style</b>"
 msgstr ""
