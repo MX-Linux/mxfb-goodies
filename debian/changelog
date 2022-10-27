@@ -1,9 +1,13 @@
-mxfb-goodies (22.09.06) UNRELEASED; urgency=medium
+mxfb-goodies (22.09.06+nmu1) UNRELEASED; urgency=medium
 
+  [ Jerry ]
   * started development of MX-rofi-manager
   * added translations to rofi-help
 
- -- Jerry <jb@mx>  Tue, 06 Sep 2022 11:21:23 -0400
+  [ Dolphin Oracle ]
+  * update translations
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Wed, 26 Oct 2022 20:02:25 -0400
 
 mxfb-goodies (22.08.26) mx; urgency=medium
 
