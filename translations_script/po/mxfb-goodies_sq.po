@@ -3,141 +3,174 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Besnik Bleta <besnik@programeshqip.org>, 2022
-# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 19:19-0400\n"
+"POT-Creation-Date: 2020-11-27 13:17-0600\n"
 "PO-Revision-Date: 2020-10-01 02:35+0000\n"
-"Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2022\n"
 "Language-Team: Albanian (https://www.transifex.com/anticapitalista/teams/10162/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Language: sq\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mxrr:258
-msgid "<b>Name for new style</b>"
-msgstr "<b>Emër për stilin e ri</b>"
-
-#: ../mxrr:239 ../mxrr:285
-msgid "<b>Name for new theme</b>"
-msgstr "<b>Emër për temën e re</b>"
-
-#. MAIN
-#. color selection dialogue
-#: ../mxrr:155
-msgid "<b>\\nEdit colors and create a new rofi theme.\\n\\n</b>"
-msgstr "<b>\\nPërpunoni ngjyra dhe krijoni një temë të re rofi.\\n\\n</b>"
-
-#: ../mxrr:278
-msgid "A Theme with this name already exists. \\n\\nDo you want to overwrite <b>"
-msgstr "Ka tashmë një temë me këtë emër. \\n\\nDoni të mbishkruhet <b>"
-
-#: ../mxrr:174
-msgid "Active Tab Background"
-msgstr "Sfond Skedash Aktive"
-
-#: ../mxrr:176
-msgid "Active Tab Highlight"
-msgstr "Theksim Skedash Aktive"
-
-#: ../mxrr:175
-msgid "Active Tab Text"
-msgstr "Tekst Skedash Aktive"
-
-#: ../mxrr:332 ../mxrr:339
-msgid "All done!\\n<b>"
-msgstr "Kaq qe!\\n<b>"
-
-#: ../mxrr:160
-msgid "Inactive Tab Background"
-msgstr "Sfond Skedash Joaktive"
-
-#: ../mxrr:161
-msgid "Inactive Tab Text"
-msgstr "Tekst Skedash Joaktive"
-
-#: ../mxrr:145
-msgid "MX-Rofi-recolor help"
-msgstr "Ndihmë për MX-Rofi-recolor"
-
-#: ../mxrr:238
-msgid "No Theme name!"
-msgstr "Pa emër Teme!"
-
-#: ../mxrr:95
-msgid ""
-"No theme selected.\\n\\n<b>MX-comfort</b> will be used as the starting "
-"theme."
+#: mxfb-appearance:13
+msgid "Fluxbox Appearance"
 msgstr ""
-"S’u përzgjodh temë.\\n\\nSi temë fillimi do të përdoret <b>MX-comfort</b>."
 
-#. #begin message box
-#: ../mxrr:43
+#: mxfb-appearance:14
+msgid "Toolbar"
+msgstr ""
+
+#: mxfb-appearance:15
+msgid "Conky"
+msgstr ""
+
+#: mxfb-appearance:16
+msgid "Docks"
+msgstr ""
+
+#: mxfb-appearance:17
+msgid "Desktop icons"
+msgstr ""
+
+#: mxfb-appearance:18
+msgid "Style"
+msgstr ""
+
+#: mxfb-appearance:19
+msgid "Theme"
+msgstr ""
+
+#: mxfb-appearance:20
+msgid "Toolbar toggle"
+msgstr ""
+
+#: mxfb-appearance:21
+msgid "Wallpaper"
+msgstr ""
+
+#: mxfb-recent-files:12
+msgid "Recent files"
+msgstr ""
+
+#: mxfb-recent-files:13
+msgid "CLICK HERE TO SORT BY PATH"
+msgstr ""
+
+#: mxfb-separate-backgrounds:11
+msgid ""
+"  This app allows you to configure separate backgrounds for each Workspace  "
+"</b>"
+msgstr ""
+
+#: mxfb-separate-backgrounds:12
+msgid " Selection windows will pop up for each Workspace."
+msgstr ""
+
+#: mxfb-separate-backgrounds:13
+msgid " Type \\"
+msgstr ""
+
+#: mxfb-tiles:10
+msgid ""
+"This script will back up your current keys file, then install commands for tiling to the end of the file. \\n\n"
+"</b>"
+msgstr ""
+
+#: mxfb-tiles:12
+msgid "Features: 1/2 screen, 1/4 screen, 1/3 screen and restore \\n"
+msgstr ""
+
+#: mxfb-tiles:13
+msgid "Multiple options for number keys and keyboard"
+msgstr ""
+
+#: mxfb-tiles:14
 msgid "OK to proceed?"
-msgstr "OK të vazhdohet?"
-
-#: ../mxrr:278
-#, sh-format
-msgid "Overwrite $NEWNAME"
-msgstr "Mbishkruaje $NEWNAME"
-
-#: ../mxrr:145
-msgid "Return to Main Window"
-msgstr "Kthehu te Dritarja Kryesore"
-
-#: ../mxrr:278
-msgid "Save as different theme name"
-msgstr "Ruaje nën emër tjetër teme"
-
-#: ../mxrr:158
-msgid "Searchbar Background"
-msgstr "Sfond Shtylle Kërkimesh"
-
-#: ../mxrr:159
-msgid "Searchbar Text"
-msgstr "Tekst Shtylle Kërkimesh"
-
-#: ../mxrr:177
-msgid "Selection Background"
-msgstr "Sfond Përzgjedhjeje"
-
-#: ../mxrr:178
-msgid "Selection Text"
-msgstr "Tekst Përzgjedhjeje"
-
-#: ../mxrr:257
-msgid "Theme name "
-msgstr "Emër teme "
-
-#: ../mxrr:40
-#, sh-format
-msgid ""
-"This tool edits the rofi config file.\\n\\nThe existing file will be backed "
-"up as \\n\\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
 msgstr ""
-"Ky mjet përpunon kartelën e formësimit rofi.\\n\\nKartela ekzistuese do të "
-"kopjeruhet si \\n\\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
 
-#: ../mxrr:156
-msgid "Title Background"
-msgstr "Sfond Titulli"
+#: mxfb-tiles:15
+msgid ""
+"The code has been inserted successfully. Now there are 3 methods to do the "
+"tiling</b>"
+msgstr ""
 
-#: ../mxrr:157
-msgid "Title Text"
-msgstr "Tekst Titulli"
+#: mxfb-tiles:16
+msgid ""
+"<u>Number keys</u> \n"
+"  Control + 1-4: half\n"
+"  Control + 5-8: quarter\n"
+"  Control + 9: third \n"
+"  Control + 0: toggle maximize"
+msgstr ""
 
-#. select starting style
-#: ../mxrr:82
-msgid "\\n<b> Choose which theme to use as a starting point</b>\\n"
-msgstr "\\n<b> Zgjidhni cila temë të përdoret si pikënisje</b>\\n"
+#: mxfb-tiles:21
+msgid ""
+"<u>Arrow keys</u>\n"
+"  Alt + Arrow: half \n"
+"  Alt + LogoKey + Arrow: quarter\\n"
+msgstr ""
 
-#: ../mxrr:129
-msgid "mxrr-color-selector"
-msgstr "mxrr-color-selector"
+#: mxfb-tiles:24
+msgid ""
+"<u>Keypad</u>\n"
+"  Alt + 2,4,6,8: half\n"
+"  Alt + 1,3,7,9: quarter\n"
+"  Alt + 5: center\n"
+"  Alt + 0: toggle maximize"
+msgstr ""
+
+#: mxfb-tiles:29
+msgid "Usage options"
+msgstr ""
+
+#: mxfb-timer:24
+msgid "MXFB Timer"
+msgstr ""
+
+#: mxfb-timer:25
+msgid "Enter local time"
+msgstr ""
+
+#: mxfb-timer:26
+msgid "or number and unit"
+msgstr ""
+
+#: mxfb-timer:27
+msgid "Click \"Check...\" button to confirm time and date are correct"
+msgstr ""
+
+#: components/flux-toolbar:12
+msgid "Basic Toolbar Configuration"
+msgstr ""
+
+#: components/flux-toolbar:13
+msgid "Position"
+msgstr ""
+
+#: components/flux-toolbar:14
+msgid "Auto-hide"
+msgstr ""
+
+#: components/flux-toolbar:15
+msgid "Layer (screen priority)"
+msgstr ""
+
+#: components/flux-toolbar:16
+msgid "Width"
+msgstr ""
+
+#: components/flux-toolbar:17
+msgid "Height"
+msgstr ""
+
+#: components/flux-toolbar:18
+msgid "Show/Hide"
+msgstr ""
+
+#: components/flux-toolbar:19
+msgid "Transparency"
+msgstr ""

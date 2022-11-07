@@ -4,137 +4,199 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
+# En Kerro <inactive+ekeimaja@transifex.com>, 2020
 # Oi Suomi On! <oisuomion@protonmail.com>, 2020
+# Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 19:19-0400\n"
+"POT-Creation-Date: 2020-11-27 13:17-0600\n"
 "PO-Revision-Date: 2020-10-01 02:35+0000\n"
-"Last-Translator: Oi Suomi On! <oisuomion@protonmail.com>, 2020\n"
+"Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>, 2020\n"
 "Language-Team: Finnish (https://www.transifex.com/anticapitalista/teams/10162/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../mxrr:258
-msgid "<b>Name for new style</b>"
-msgstr ""
+#: mxfb-appearance:13
+msgid "Fluxbox Appearance"
+msgstr "Fluxboxin ulkoasu"
 
-#: ../mxrr:239 ../mxrr:285
-msgid "<b>Name for new theme</b>"
-msgstr ""
+#: mxfb-appearance:14
+msgid "Toolbar"
+msgstr "Työkalupalkki"
 
-#. MAIN
-#. color selection dialogue
-#: ../mxrr:155
-msgid "<b>\\nEdit colors and create a new rofi theme.\\n\\n</b>"
-msgstr ""
+#: mxfb-appearance:15
+msgid "Conky"
+msgstr "Conky"
 
-#: ../mxrr:278
-msgid "A Theme with this name already exists. \\n\\nDo you want to overwrite <b>"
-msgstr ""
+#: mxfb-appearance:16
+msgid "Docks"
+msgstr "Telakat"
 
-#: ../mxrr:174
-msgid "Active Tab Background"
-msgstr ""
+#: mxfb-appearance:17
+msgid "Desktop icons"
+msgstr "Työpöydän kuvakkeet"
 
-#: ../mxrr:176
-msgid "Active Tab Highlight"
-msgstr ""
+#: mxfb-appearance:18
+msgid "Style"
+msgstr "Tyyli"
 
-#: ../mxrr:175
-msgid "Active Tab Text"
-msgstr ""
+#: mxfb-appearance:19
+msgid "Theme"
+msgstr "Ulkoasu"
 
-#: ../mxrr:332 ../mxrr:339
-msgid "All done!\\n<b>"
-msgstr ""
+#: mxfb-appearance:20
+msgid "Toolbar toggle"
+msgstr "Työkalupalkin vaihto"
 
-#: ../mxrr:160
-msgid "Inactive Tab Background"
-msgstr ""
+#: mxfb-appearance:21
+msgid "Wallpaper"
+msgstr "Taustakuva"
 
-#: ../mxrr:161
-msgid "Inactive Tab Text"
-msgstr ""
+#: mxfb-recent-files:12
+msgid "Recent files"
+msgstr "Viimeaikaiset tiedostot"
 
-#: ../mxrr:145
-msgid "MX-Rofi-recolor help"
-msgstr ""
+#: mxfb-recent-files:13
+msgid "CLICK HERE TO SORT BY PATH"
+msgstr "LAJITTELE POLUN MUKAAN NAPSAUTTAMALLA TÄTÄ"
 
-#: ../mxrr:238
-msgid "No Theme name!"
-msgstr ""
-
-#: ../mxrr:95
+#: mxfb-separate-backgrounds:11
 msgid ""
-"No theme selected.\\n\\n<b>MX-comfort</b> will be used as the starting "
-"theme."
+"  This app allows you to configure separate backgrounds for each Workspace  "
+"</b>"
 msgstr ""
+"  Tämän sovelluksen avulla voit määrittää erilliset taustat kullekin "
+"työtilalle  </b>"
 
-#. #begin message box
-#: ../mxrr:43
+#: mxfb-separate-backgrounds:12
+msgid " Selection windows will pop up for each Workspace."
+msgstr "Valintaikkunat tulevat esiin kullekin työtilalle."
+
+#: mxfb-separate-backgrounds:13
+msgid " Type \\"
+msgstr "Tyyppi \\"
+
+#: mxfb-tiles:10
+msgid ""
+"This script will back up your current keys file, then install commands for tiling to the end of the file. \\n\n"
+"</b>"
+msgstr ""
+"Tämä komento varmuuskopioi nykyisen tiedoston ja asentaa sitten komennot tiedoston loppuun. \\n\n"
+"</b>"
+
+#: mxfb-tiles:12
+msgid "Features: 1/2 screen, 1/4 screen, 1/3 screen and restore \\n"
+msgstr "Ominaisuudet: 1/2-näyttö, 1/4-näyttö, 1/3-näyttö ja palautus \\n"
+
+#: mxfb-tiles:13
+msgid "Multiple options for number keys and keyboard"
+msgstr "Useita vaihtoehtoja numeronäppäimille ja näppäimistölle"
+
+#: mxfb-tiles:14
 msgid "OK to proceed?"
 msgstr "Hyväksytkö jatkamisen?"
 
-#: ../mxrr:278
-#, sh-format
-msgid "Overwrite $NEWNAME"
-msgstr ""
-
-#: ../mxrr:145
-msgid "Return to Main Window"
-msgstr ""
-
-#: ../mxrr:278
-msgid "Save as different theme name"
-msgstr ""
-
-#: ../mxrr:158
-msgid "Searchbar Background"
-msgstr ""
-
-#: ../mxrr:159
-msgid "Searchbar Text"
-msgstr ""
-
-#: ../mxrr:177
-msgid "Selection Background"
-msgstr ""
-
-#: ../mxrr:178
-msgid "Selection Text"
-msgstr ""
-
-#: ../mxrr:257
-msgid "Theme name "
-msgstr ""
-
-#: ../mxrr:40
-#, sh-format
+#: mxfb-tiles:15
 msgid ""
-"This tool edits the rofi config file.\\n\\nThe existing file will be backed "
-"up as \\n\\n<b>$HOME/.restore/rofi/config.rasi_$NOW</b>"
+"The code has been inserted successfully. Now there are 3 methods to do the "
+"tiling</b>"
 msgstr ""
+"Koodi on lisätty onnistuneesti. Nyt ruudut voi tehdä 3:lla tavavalla </b>"
 
-#: ../mxrr:156
-msgid "Title Background"
+#: mxfb-tiles:16
+msgid ""
+"<u>Number keys</u> \n"
+"  Control + 1-4: half\n"
+"  Control + 5-8: quarter\n"
+"  Control + 9: third \n"
+"  Control + 0: toggle maximize"
 msgstr ""
+"<u>Numeronäppäimet</u> \n"
+"  Control + 1-4: puoliksi\n"
+"  Control + 5-8: neljäsosa\n"
+"  Control + 9: kolmasosa \n"
+"  Control + 0: vaihda maksimiin"
 
-#: ../mxrr:157
-msgid "Title Text"
+#: mxfb-tiles:21
+msgid ""
+"<u>Arrow keys</u>\n"
+"  Alt + Arrow: half \n"
+"  Alt + LogoKey + Arrow: quarter\\n"
 msgstr ""
+"<u>Nuolinäppäimet</u>\n"
+"  Alt + nuoli: puoliksi \n"
+"  Alt + Super + nuoli: neljäsosa\\n"
 
-#. select starting style
-#: ../mxrr:82
-msgid "\\n<b> Choose which theme to use as a starting point</b>\\n"
+#: mxfb-tiles:24
+msgid ""
+"<u>Keypad</u>\n"
+"  Alt + 2,4,6,8: half\n"
+"  Alt + 1,3,7,9: quarter\n"
+"  Alt + 5: center\n"
+"  Alt + 0: toggle maximize"
 msgstr ""
+"<u>Näppäimistö</u>\n"
+"  Alt + 2,4,6,8: puoliksi\n"
+"  Alt + 1,3,7,9: neljäsosa\n"
+"  Alt + 5: keskellä\n"
+"  Alt + 0: vaihda maksimiin"
 
-#: ../mxrr:129
-msgid "mxrr-color-selector"
+#: mxfb-tiles:29
+msgid "Usage options"
+msgstr "Vaihtoehdot"
+
+#: mxfb-timer:24
+msgid "MXFB Timer"
+msgstr "MXFB Kello"
+
+#: mxfb-timer:25
+msgid "Enter local time"
+msgstr "Anna paikallinen aika"
+
+#: mxfb-timer:26
+msgid "or number and unit"
+msgstr "tai numero ja yksikkö"
+
+#: mxfb-timer:27
+msgid "Click \"Check...\" button to confirm time and date are correct"
 msgstr ""
+"Napsauta \"Tarkista ...\" -painiketta varmistaaksesi, että aika ja "
+"päivämäärä ovat oikein"
+
+#: components/flux-toolbar:12
+msgid "Basic Toolbar Configuration"
+msgstr "Perustyökalupalkin määritykset"
+
+#: components/flux-toolbar:13
+msgid "Position"
+msgstr "Asento"
+
+#: components/flux-toolbar:14
+msgid "Auto-hide"
+msgstr "Piilota automaattisesti"
+
+#: components/flux-toolbar:15
+msgid "Layer (screen priority)"
+msgstr "Taso (näytön etuoikeus)"
+
+#: components/flux-toolbar:16
+msgid "Width"
+msgstr "Leveys"
+
+#: components/flux-toolbar:17
+msgid "Height"
+msgstr "Korkeus"
+
+#: components/flux-toolbar:18
+msgid "Show/Hide"
+msgstr "Näytä/Piilota"
+
+#: components/flux-toolbar:19
+msgid "Transparency"
+msgstr "Läpikuultava"
