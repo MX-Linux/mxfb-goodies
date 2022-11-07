@@ -1,0 +1,33 @@
+Format: 1.8
+Date: Sun, 06 Nov 2022 19:28:08 -0500
+Source: mxfb-goodies
+Binary: mxfb-goodies
+Architecture: source all
+Version: 22.11.06
+Distribution: mx
+Urgency: medium
+Maintainer: Jerry3904<jerry@mxlinux.org>
+Changed-By: Jerry <jb@mx>
+Description:
+ mxfb-goodies - Various useful scripts for MX-Fluxbox
+Changes:
+ mxfb-goodies (22.11.06) mx; urgency=medium
+ .
+   * started development of MX-rofi-manager
+   * added translations to rofi-help
+   * moved rofi materials to mxfb-accessories, other cleanup
+Checksums-Sha1:
+ d2475697eb9efad6a8fcec4f7047c36e5e3321ae 583 mxfb-goodies_22.11.06.dsc
+ d3b97d360eb91f2f5d9f1c56395f6ef604579706 161016 mxfb-goodies_22.11.06.tar.xz
+ 1eddb121b185062dbc7c635d702cf61620fca3e0 6040 mxfb-goodies_22.11.06_all.deb
+ 2c0ff96b8361a7eb115b4a695031c1409ad23ce9 5248 mxfb-goodies_22.11.06_amd64.buildinfo
+Checksums-Sha256:
+ 0b66f777b0221f2d665c550da9cf795d949b0fb7cc6a227ec4b7f1ae052dd4f8 583 mxfb-goodies_22.11.06.dsc
+ e1aa6fc6bb0a25c71aa2f9c2a14cf9a0f8b87bd9fe277460e90137867fec3298 161016 mxfb-goodies_22.11.06.tar.xz
+ e0eb47a8ff198e4e3ff9fee6dc499a22b42cdc6b10ba7317f730b760f3862952 6040 mxfb-goodies_22.11.06_all.deb
+ 6c191aac4bff0eaa110ba0b6dd607e8cd791362657f35c0b70c5119ebc289a21 5248 mxfb-goodies_22.11.06_amd64.buildinfo
+Files:
+ 4a402498e8be12b382ba00ee81fdf62a 583 system optional mxfb-goodies_22.11.06.dsc
+ 1a7bca829e6fb7b27da3f3aaed97dc07 161016 system optional mxfb-goodies_22.11.06.tar.xz
+ 51c9533e0aa6b89add07272117ea041a 6040 system optional mxfb-goodies_22.11.06_all.deb
+ 2f861012d6f3cf14716daa0964f6bc03 5248 system optional mxfb-goodies_22.11.06_amd64.buildinfo
