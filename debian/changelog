@@ -1,3 +1,9 @@
+mxfb-goodies (22.11.07) mx; urgency=medium
+
+  * released cleaned pu mxfb-goodies
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Thu, 17 Nov 2022 19:36:03 -0500
+
 mxfb-goodies (22.11.06) mx; urgency=medium
 
   * started development of MX-rofi-manager
