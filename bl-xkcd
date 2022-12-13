@@ -5,6 +5,7 @@
 ## Get a random xkcd cartoon and display it with feh
 ## by @damo <Oct 2019>
 ## updated by MX Devs Dec 2022
+##j license: GPL
 
 ## One-liner:
 #feh "$(wget -O - "https://c.xkcd.com/random/comic"  | grep "Image URL" | awk '{print $5}')"

@@ -1,5 +1,6 @@
 executors/weather/* usr/share/tint2/executors
 mxfb-* usr/bin
+bl-xkcd usr/bin
 fluxbox-keys-merger usr/bin
 
 
