@@ -1,3 +1,10 @@
+mxfb-goodies (22.12.13) mx; urgency=medium
+
+  * Non-maintainer upload.
+  * restored fixed bl-xkcd
+
+ -- Jerry <jb@mx>  Tue, 13 Dec 2022 09:10:14 -0500
+
 mxfb-goodies (22.11.07) mx; urgency=medium
 
   * released cleaned pu mxfb-goodies
